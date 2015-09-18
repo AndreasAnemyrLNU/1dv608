@@ -1,5 +1,9 @@
 <?php
 
+namespace view;
+
+use model\LoginModel;
+
 class LoginView {
 	private static $login = 'LoginView::Login';
 	private static $logout = 'LoginView::Logout';
@@ -10,7 +14,13 @@ class LoginView {
 	private static $keep = 'LoginView::KeepMeLoggedIn';
 	private static $messageId = 'LoginView::Message';
 
-	
+	private $loginModel;
+
+	public function __construct(LoginModel $loginModel)
+	{
+		$this->loginModel = $loginModel;
+	}
+
 
 	/**
 	 * Create HTTP response
@@ -20,7 +30,7 @@ class LoginView {
 	 * @return  void BUT writes to standard output and cookies!
 	 */
 	public function response() {
-		$message = '';
+		$message = $this->loginModel->getResponseMessage();
 		
 		$response = $this->generateLoginFormHTML($message);
 		//$response .= $this->generateLogoutButtonHTML($message);
@@ -67,10 +77,21 @@ class LoginView {
 			</form>
 		';
 	}
-	
-	//CREATE GET-FUNCTIONS TO FETCH REQUEST VARIABLES
-	private function getRequestUserName() {
-		//RETURN REQUEST VARIABLE: USERNAME
+
+
+	/**
+	 * @return string
+     */
+	private function getRequestUserName()
+	{
+		return $_POST[self::$name];
 	}
-	
+
+	/**
+	 * @return bool
+	 */
+	public function didNotEnterName()
+	{
+		return !isset($_POST[self::$name]) ? true : false;
+	}
 }

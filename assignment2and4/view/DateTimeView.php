@@ -1,10 +1,13 @@
 <?php
 
+namespace view;
+use \model\DateTimeModel;
+
 class DateTimeView {
 
 	private $timestamp;
 
-	function __construct(\model\DateTimeModel $timestamp)
+	function __construct(DateTimeModel $timestamp)
 	{
 		$this->timestamp = $timestamp;
 	}
