@@ -9,7 +9,7 @@
 namespace controller;
 
 
-class doAuthenticate
+class doAuth
 {
 
 }
