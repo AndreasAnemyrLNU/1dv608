@@ -30,7 +30,14 @@ class LoginView {
 	 * @return  void BUT writes to standard output and cookies!
 	 */
 	public function response() {
-		$message = $this->loginModel->getResponseMessage();
+
+		$message = "";
+
+		if(!$this->loginModel->getResponseMessage() !== "")
+		{
+			$message = $this->loginModel->getResponseMessage();
+		}
+
 		
 		$response = $this->generateLoginFormHTML($message);
 		//$response .= $this->generateLogoutButtonHTML($message);
@@ -57,6 +64,18 @@ class LoginView {
 	* @return  void, BUT writes to standard output!
 	*/
 	private function generateLoginFormHTML($message) {
+
+		//Start AutoRefill form from $_POST
+		if(isset($_POST[self::$name]))
+		{
+			$name = $_POST[self::$name];
+		}
+		else
+		{
+			$name = "";
+		}
+		//End AutorRefill form from $_POST
+
 		return '
 			<form method="post" > 
 				<fieldset>
@@ -64,7 +83,7 @@ class LoginView {
 					<p id="' . self::$messageId . '">' . $message . '</p>
 					
 					<label for="' . self::$name . '">Username :</label>
-					<input type="text" id="' . self::$name . '" name="' . self::$name . '" value="" />
+					<input type="text" id="' . self::$name . '" name="' . self::$name . '" value="' . $name . '" />
 
 					<label for="' . self::$password . '">Password :</label>
 					<input type="password" id="' . self::$password . '" name="' . self::$password . '" />
@@ -78,7 +97,6 @@ class LoginView {
 		';
 	}
 
-
 	/**
 	 * @return string
      */
@@ -90,8 +108,56 @@ class LoginView {
 	/**
 	 * @return bool
 	 */
-	public function didNotEnterName()
+	public function didEnterUserName()
 	{
-		return !isset($_POST[self::$name]) ? true : false;
+		if(isset($_POST[self::$name]))
+		{
+			if($_POST[self::$name] !== "") {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function didEnterPassword()
+	{
+		if(isset($_POST[self::$password]))
+		{
+			if($_POST[self::$password] !== "") {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function didNotEnterUserName()
+	{
+		if(isset($_POST[self::$name]))
+		{
+			if($_POST[self::$name] !== "") {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function didNotEnterPassword()
+	{
+		if(isset($_POST[self::$password]))
+		{
+			if($_POST[self::$password] !== "") {
+				return false;
+			}
+		}
+		return true;
 	}
 }

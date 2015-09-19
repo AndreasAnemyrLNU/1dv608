@@ -13,6 +13,12 @@ class LoginModel
 {
     private $responseMessage;
 
+    public function __construct()
+    {
+        $this->responseMessage = "";
+    }
+
+
     /**
      * @return string
      */
