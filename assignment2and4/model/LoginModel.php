@@ -13,9 +13,12 @@ class LoginModel
 {
     private $responseMessage;
 
+    private $isAuthenticated;
+
     public function __construct()
     {
         $this->responseMessage = "";
+        $this->isAuthenticated = false;
     }
 
 
@@ -33,5 +36,21 @@ class LoginModel
     public function setResponseMessage($responseMessage)
     {
         $this->responseMessage = $responseMessage;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsAuthenticated()
+    {
+        return $this->isAuthenticated;
+    }
+
+    /**
+     * @param mixed $isAuthenticated
+     */
+    public function setIsAuthenticated($isAuthenticated)
+    {
+        $this->isAuthenticated = $isAuthenticated;
     }
 }

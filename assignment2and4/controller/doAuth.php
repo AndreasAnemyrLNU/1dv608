@@ -60,6 +60,12 @@ class doAuth
         {
             $this->loginModel->setResponseMessage('Wrong name or password');
         }
+        //Executing Usecase 1.7 and update $message in loginModel if support test returns TRUE!
+        if($this->didPostAndWithCorrectValueAdminForUserNameAndCorrectWithValuePasswordWithCapitalPForPassword())
+        {
+            $this->loginModel->setIsAuthenticated(true);
+        }
+
     }
 
     //Supports UC 1.2 -> returns bool value TRUE if ALL test params for UC returns/validates to TRUE!
@@ -126,6 +132,22 @@ class doAuth
         if($this->smartQuestionsView->isPost()) {
             if ($this->loginView->didEnterUserName()) {
                 if ($this->loginView->getRequestUserName() === 'admin') {
+                    if ($this->loginView->didEnterPassword()) {
+                        if ($this->loginView->getRequestPassword() === 'Password') ;
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    //Supports UC 1.7 -> returns bool value TRUE if ALL test params for UC returns/validates to TRUE!
+    public function didPostAndWithCorrectValueAdminForUserNameAndCorrectWithValuePasswordWithCapitalPForPassword()
+    {
+        if($this->smartQuestionsView->isPost()) {
+            if ($this->loginView->didEnterUserName()) {
+                if ($this->loginView->getRequestUserName() === 'Admin') {
                     if ($this->loginView->didEnterPassword()) {
                         if ($this->loginView->getRequestPassword() === 'Password') ;
                         {

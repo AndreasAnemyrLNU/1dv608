@@ -31,16 +31,19 @@ class LoginView {
 	 */
 	public function response() {
 
-		$message = "";
-
-		if(!$this->loginModel->getResponseMessage() !== "")
+		if($this->loginModel->getIsAuthenticated())
 		{
-			$message = $this->loginModel->getResponseMessage();
+			$message = "Welcome";
+			$response = $this->generateLogoutButtonHTML($message);
 		}
-
-		
-		$response = $this->generateLoginFormHTML($message);
-		//$response .= $this->generateLogoutButtonHTML($message);
+		else
+		{
+			if(!$this->loginModel->getResponseMessage() !== "")
+			{
+				$message = $this->loginModel->getResponseMessage();
+			}
+			$response = $this->generateLoginFormHTML($message);
+		}
 		return $response;
 	}
 
