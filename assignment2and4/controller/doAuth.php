@@ -35,34 +35,31 @@ class doAuth
     //Call this public method from index to rund doAuth!
     public function tryAuth()
     {
-
-
-        //Usecase 1.2
+        //Executing Usecase 1.2 and update $message in loginModel if support test returns TRUE!
         if(($this->didPostRequestAndWithEmptyInputsForUsernameAndWithEmptyInputForPassword()))
         {
-            //If did not fill in input update state (message for feedback in this case)
-            //This update state of loginModel. But is it a valid MVC alá D.Toll?
             $this->loginModel->setResponseMessage('Username is missing');
         };
-
-        //Usecase 1.3
+        //Executing Usecase 1.3 and update $message in loginModel if support test returns TRUE!
         if($this->didPostAndWithInputForUserNameAndWithEmptyForPassword())
         {
             $this->loginModel->setResponseMessage('Password is missing');
         }
-
-        //Usecase 1.4
+        //Executing Usecase 1.4 and update $message in loginModel if support test returns TRUE!
         if($this->didPostAndWithEmptyInputForUserNameAndWithInputForPassword())
         {
             $this->loginModel->setResponseMessage('Username is missing');
         }
-
-        //Usecase 1.5
+        //Executing Usecase 1.5 and update $message in loginModel if support test returns TRUE!
         if($this->didPostAndWithValueAdminForUserNameAndWithValuePasswordWithSmallPForPassword())
         {
             $this->loginModel->setResponseMessage('Wrong name or password');
         }
-
+        //Executing Usecase 1.6 and update $message in loginModel if support test returns TRUE!
+        if($this->didPostAndWithValueAdminWithSmallAForUserNameAndWithValuePasswordForPassword())
+        {
+            $this->loginModel->setResponseMessage('Wrong name or password');
+        }
     }
 
     //Supports UC 1.2 -> returns bool value TRUE if ALL test params for UC returns/validates to TRUE!
@@ -79,7 +76,6 @@ class doAuth
             }
         }
     }
-
     //Supports UC 1.3 -> returns bool value TRUE if ALL test params for UC returns/validates to TRUE!
     private function didPostAndWithInputForUserNameAndWithEmptyForPassword()
     {
@@ -94,7 +90,6 @@ class doAuth
             }
         }
     }
-
     //Supports UC 1.4 -> returns bool value TRUE if ALL test params for UC returns/validates to TRUE!
     private function didPostAndWithEmptyInputForUserNameAndWithInputForPassword()
     {
@@ -109,7 +104,6 @@ class doAuth
             }
         }
     }
-
     //Supports UC 1.5 -> returns bool value TRUE if ALL test params for UC returns/validates to TRUE!
     private function didPostAndWithValueAdminForUserNameAndWithValuePasswordWithSmallPForPassword()
     {
@@ -118,6 +112,22 @@ class doAuth
                 if ($this->loginView->getRequestUserName() === 'Admin') {
                     if ($this->loginView->didEnterPassword()) {
                         if ($this->loginView->getRequestPassword() === 'password') ;
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    //Supports UC 1.6 -> returns bool value TRUE if ALL test params for UC returns/validates to TRUE!
+    public function didPostAndWithValueAdminWithSmallAForUserNameAndWithValuePasswordForPassword()
+    {
+        if($this->smartQuestionsView->isPost()) {
+            if ($this->loginView->didEnterUserName()) {
+                if ($this->loginView->getRequestUserName() === 'admin') {
+                    if ($this->loginView->didEnterPassword()) {
+                        if ($this->loginView->getRequestPassword() === 'Password') ;
                         {
                             return true;
                         }
