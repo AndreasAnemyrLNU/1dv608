@@ -100,9 +100,17 @@ class LoginView {
 	/**
 	 * @return string
      */
-	private function getRequestUserName()
+	public function getRequestUserName()
 	{
 		return $_POST[self::$name];
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getRequestPassword()
+	{
+		return $_POST[self::$password];
 	}
 
 	/**

@@ -56,27 +56,28 @@ class doAuth
         {
             $this->loginModel->setResponseMessage('Username is missing');
         }
+
+        //Usecase 1.5
+        if($this->didPostAndWithValueAdminForUserNameAndWithValuePasswordWithSmallPForPassword())
+        {
+            $this->loginModel->setResponseMessage('Wrong name or password');
+        }
+
     }
 
     //Supports UC 1.2 -> returns bool value TRUE if ALL test params for UC returns/validates to TRUE!
     private function didPostRequestAndWithEmptyInputsForUsernameAndWithEmptyInputForPassword()
     {
-
         if($this->smartQuestionsView->isPost())
         {
-            //echo "is Post är TRUE!";
             if($this->loginView->didNotEnterUserName())
             {
-                //echo "didNotEneterUserName är TRUE!";
                 if($this->loginView->didNotEnterPassword())
                 {
-                    //echo "didNotEnterPassword är TRUE";
                     return true;
                 }
-                return false;
             }
         }
-        return false;
     }
 
     //Supports UC 1.3 -> returns bool value TRUE if ALL test params for UC returns/validates to TRUE!
@@ -90,7 +91,6 @@ class doAuth
                 {
                     return true;
                 }
-                return false;
             }
         }
     }
@@ -106,7 +106,23 @@ class doAuth
                 {
                     return true;
                 }
-                return false;
+            }
+        }
+    }
+
+    //Supports UC 1.5 -> returns bool value TRUE if ALL test params for UC returns/validates to TRUE!
+    private function didPostAndWithValueAdminForUserNameAndWithValuePasswordWithSmallPForPassword()
+    {
+        if($this->smartQuestionsView->isPost()) {
+            if ($this->loginView->didEnterUserName()) {
+                if ($this->loginView->getRequestUserName() === 'Admin') {
+                    if ($this->loginView->didEnterPassword()) {
+                        if ($this->loginView->getRequestPassword() === 'password') ;
+                        {
+                            return true;
+                        }
+                    }
+                }
             }
         }
     }
