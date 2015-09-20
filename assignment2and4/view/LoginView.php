@@ -33,15 +33,13 @@ class LoginView {
 
 		if($this->loginModel->getIsAuthenticated())
 		{
-			$message = "Welcome";
+			$message = $this->loginModel->getResponseMessage();
 			$response = $this->generateLogoutButtonHTML($message);
 		}
 		else
 		{
-			if(!$this->loginModel->getResponseMessage() !== "")
-			{
-				$message = $this->loginModel->getResponseMessage();
-			}
+			$message = $this->loginModel->getResponseMessage();
+
 			$response = $this->generateLoginFormHTML($message);
 		}
 		return $response;

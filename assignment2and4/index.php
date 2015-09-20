@@ -15,11 +15,18 @@ require_once('view/SmartQuestionsView.php');
 require_once('model/DateTimeModel.php');
 require_once('model/LoginModel.php');
 require_once('model/SmartQuestionsModel.php');
+require_once('model/DALAuthentication.php');
+require_once('model/userModel.php');
+//required exceptions
+require_once('exception/ExceptionDALAuthentication.php');
+require_once('exception/FailedLoginWithoutAnyEnteredFieldsException.php');
+require_once('exception/FailedLoginWithOnlyUserNameException.php');
 
 //CREATE OBJECTS OF THE MODELS
 $timeStamp = new \model\DateTimeModel();
 $loginModel = new \model\LoginModel();
 $smartQuestionsModel = new \model\SmartQuestionsModel();
+$dalauthenticationModel = new \model\DALAuthentication();
 
 //CREATE OBJECTS OF THE VIEWS
 $loginView = new \view\LoginView($loginModel);
@@ -33,11 +40,11 @@ $doAuth = new \controller\doAuth
                                         $loginView,
                                         $loginModel,
                                         $smartQuestionsView,
-                                        $smartQuestionsModel
+                                        $smartQuestionsModel,
+                                        $dalauthenticationModel
                                     );
 
 $doAuth->tryAuth();
 
 $layoutView->render(false, $loginView, $dateTimeView);
 
-var_dump($_POST);
