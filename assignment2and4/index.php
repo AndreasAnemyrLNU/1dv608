@@ -21,6 +21,8 @@ require_once('model/userModel.php');
 require_once('exception/ExceptionDALAuthentication.php');
 require_once('exception/FailedLoginWithoutAnyEnteredFieldsException.php');
 require_once('exception/FailedLoginWithOnlyUserNameException.php');
+require_once('exception/FailedLoginWithOnlyPasswordException.php');
+require_once('exception/FailedLoginWithWrongPassWordButExistingUserNameException.php');
 
 //CREATE OBJECTS OF THE MODELS
 $timeStamp = new \model\DateTimeModel();
@@ -46,5 +48,5 @@ $doAuth = new \controller\doAuth
 
 $doAuth->tryAuth();
 
-$layoutView->render(false, $loginView, $dateTimeView);
+$layoutView->render($loginModel->getIsAuthenticated(), $loginView, $dateTimeView);
 

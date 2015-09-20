@@ -50,7 +50,8 @@ class doAuth
                 $user = new userModel
                 (
                     $this->loginView->getRequestUserName(),
-                    $this->loginView->didEnterPassword()
+                    $this->loginView->getRequestPassword(),
+                    $this->loginModel
                 );
             }
             catch (\Exception $e)
