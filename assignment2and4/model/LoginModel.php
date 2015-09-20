@@ -18,7 +18,16 @@ class LoginModel
     public function __construct()
     {
         $this->responseMessage = "";
-        $this->isAuthenticated = false;
+
+        if(isset($_SESSION['isAuthenticated']))
+        {
+            $this->setIsAuthenticated($_SESSION['isAuthenticated']);
+        }
+        else
+        {
+            $this->setIsAuthenticated(FALSE);
+        }
+
     }
 
 
@@ -51,6 +60,9 @@ class LoginModel
      */
     public function setIsAuthenticated($isAuthenticated)
     {
+        //TODO Another solution for $_SESSION['isAuthenticated'],
+        //maybe string should be private static? :)
+        $_SESSION['isAuthenticated'] = $isAuthenticated;
         $this->isAuthenticated = $isAuthenticated;
     }
 }

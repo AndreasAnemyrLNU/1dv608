@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 //MAKE SURE ERRORS ARE SHOWN... MIGHT WANT TO TURN THIS OFF ON A PUBLIC SERVER
 error_reporting(E_ALL);
@@ -49,4 +50,7 @@ $doAuth = new \controller\doAuth
 $doAuth->tryAuth();
 
 $layoutView->render($loginModel->getIsAuthenticated(), $loginView, $dateTimeView);
+
+
+var_dump($_POST);
 

@@ -33,7 +33,7 @@ class LoginView {
 
 		if($this->loginModel->getIsAuthenticated())
 		{
-			$message = "Welcome";//$this->loginModel->getResponseMessage();
+			$message =  $this->loginModel->getResponseMessage();
 			$response = $this->generateLogoutButtonHTML($message);
 		}
 		else
@@ -169,4 +169,23 @@ class LoginView {
 		}
 		return true;
 	}
+
+	public function didClickLogin()
+	{
+		if(isset($_POST[self::$login]))
+		{
+			return TRUE;
+		}
+	}
+
+	public function didClickLogout()
+	{
+		if(isset($_POST[self::$logout]))
+		{
+			return TRUE;
+		}
+	}
+
+
+
 }

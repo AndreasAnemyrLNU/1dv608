@@ -31,11 +31,8 @@ class userModel
         $this->loginAttemptHasNotEmptyFieldForPassword($userName, $passWord);
         //Test for usecase 1.4
         $this->loginAttemptHasOnlyValueForPassword($userName, $passWord);
-        //Test for usecase 1.5
-        if($this->loginAttemptAgainstExistingUser($userName, $passWord))
-        {
-            $this->loginModel->setIsAuthenticated(TRUE);
-        }
+        //Test for usecase 1.5 , 1.6 , 1.7
+        $this->loginAttemptAgainstExistingUser($userName, $passWord);
 
         $this->userName = $userName;
         $this->passWord = $passWord;
