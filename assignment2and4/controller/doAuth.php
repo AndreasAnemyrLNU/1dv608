@@ -40,7 +40,7 @@ class doAuth
         $this->smartQuestionsModel = $smartQuestionsModel;
         $this->dalauthenticationModel = $dalauthenticationModel;
     }
-    //usecase 1 (1.1 - 1.7) OK!
+    //usecase 1 (1.1 - 1.7 OK!
     public function tryAuth()
     {
         if($this->smartQuestionsView->isPost() && $this->loginView->didClickLogin())
@@ -69,18 +69,17 @@ class doAuth
                 $this->loginModel->setResponseMessage($e->getMessage());
             }
         }
-        elseif($this->smartQuestionsView->isPost() && $this->loginView->didClickLogout())
+        //usecase 2.1 - 2.4 OK!
+        elseif
+                (
+                    $this->smartQuestionsView->isPost()
+                    && $this->loginView->didClickLogout()
+                    && $this->loginModel->getIsAuthenticated()
+                )
         {
             $this->loginModel->setIsAuthenticated(FALSE);
-            $this->loginModel->setResponseMessage("Bye Bye");
-            //throw new \Exception('Implement in: ' . __CLASS__ . 'Line' . __LINE__);
+            $this->loginView->deactivateLogoutButton();
+            $this->loginModel->setResponseMessage("Bye bye!");
         }
-
-
-        //else
-        //{
-        //    throw new \ErrorException('Something wrong in: ' . __CLASS__);
-        //}
-
     }
 }

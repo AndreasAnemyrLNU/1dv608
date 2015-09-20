@@ -186,6 +186,13 @@ class LoginView {
 		}
 	}
 
+	public function deleteSessionCookie()
+	{
+		setcookie('PHPSESSID', '', time() -3600);
+	}
 
-
+	public function deactivateLogoutButton()
+	{
+		unset($_POST[self::$login]);
+	}
 }
