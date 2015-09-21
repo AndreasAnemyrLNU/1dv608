@@ -4,7 +4,7 @@ session_start();
 //MAKE SURE ERRORS ARE SHOWN... MIGHT WANT TO TURN THIS OFF ON A PUBLIC SERVER
 assert_options(ASSERT_ACTIVE, 0);
 error_reporting(E_ALL);
-ini_set('display_errors', 'On');
+ini_set('display_errors', 'Off');
 
 //required controllers
 require_once('controller/doAuth.php');
