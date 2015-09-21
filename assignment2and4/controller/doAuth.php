@@ -104,7 +104,12 @@ class doAuth
                 //{
                     if($_SESSION[$_COOKIE['PHPSESSID']] === $_COOKIE['PHPSESSID'])
                     {
-                        $this->loginModel->setResponseMessage = "";
+
+
+                    }
+                    if(isset($_SESSION[$_COOKIE['PHPSESSID']]))
+                    {
+                        $this->loginModel->setResponseMessage('');
 
                     }
                     else
