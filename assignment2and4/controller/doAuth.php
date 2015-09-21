@@ -43,7 +43,11 @@ class doAuth
     //usecase 1 (1.1 - 1.7 OK!
     public function tryAuth()
     {
-        if($this->smartQuestionsView->isPost() && $this->loginView->didClickLogin())
+        if
+        (
+            $this->smartQuestionsView->isPost()
+            && $this->loginView->didClickLogin()
+        )
         {
             try
             {
@@ -63,6 +67,18 @@ class doAuth
                 //Todo ok to store in $_SESSION here?
                 $_SESSION['isAuthenticated'] = TRUE;
 
+                //usecase 3
+                if
+                (
+                    $this->loginView->didUserMarkKeepMeLoggedIn()
+                )
+                {
+                    echo "createSessionCookie called from " . __CLASS__ . " " . __LINE__;
+                    $this->loginView->createSessionCookies();
+                    $this->loginModel->setResponseMessage("Welcome and you will be remembered");
+
+                }
+
             }
             catch (\Exception $e)
             {
@@ -80,6 +96,22 @@ class doAuth
             $this->loginModel->setIsAuthenticated(FALSE);
             $this->loginView->deactivateLogoutButton();
             $this->loginModel->setResponseMessage("Bye bye!");
+        }
+        else
+        {
+                //Deleting existing cookies when first request of type GET
+                $this->loginView->deleteSessionCookies();
+
+                //TODO > START
+                            assert
+                            (
+                                false,
+                                "Not Yet implemented!" .
+                                "//TODO" .
+                                "Handle stuff in first get request?" .
+                                "in the Class: ".  __CLASS__ . " and the line " .  __LINE__
+                            );
+                //TODO < END
         }
     }
 }

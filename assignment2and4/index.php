@@ -2,6 +2,7 @@
 session_start();
 
 //MAKE SURE ERRORS ARE SHOWN... MIGHT WANT TO TURN THIS OFF ON A PUBLIC SERVER
+assert_options(ASSERT_ACTIVE, 0);
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
@@ -52,5 +53,13 @@ $doAuth->tryAuth();
 $layoutView->render($loginModel->getIsAuthenticated(), $loginView, $dateTimeView);
 
 
-
-
+//TODO > START
+assert
+(
+    false,
+    "Not Yet implemented! " .
+    "//TODO " .
+    "?" .
+    " in the Class: ".  __CLASS__ . " and the line " .  __LINE__
+);
+//TODO < END

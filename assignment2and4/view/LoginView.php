@@ -186,13 +186,28 @@ class LoginView {
 		}
 	}
 
-	public function deleteSessionCookie()
+	public function createSessionCookies()
 	{
-		setcookie('PHPSESSID', '', time() -3600);
+		setcookie(self::$cookieName, 		'Admin', 		time()+3600);
+		setcookie(self::$cookiePassword, 	'Password', 	time()+3600);
+	}
+
+	public function deleteSessionCookies()
+	{
+		setcookie(self::$cookieName, 		'Admin', 		time()-3600);
+		setcookie(self::$cookiePassword, 	'Password', 	time()-3600);
 	}
 
 	public function deactivateLogoutButton()
 	{
 		unset($_POST[self::$login]);
+	}
+
+	public function didUserMarkKeepMeLoggedIn()
+	{
+		if(isset($_POST[self::$keep]))
+		{
+			return TRUE;
+		}
 	}
 }
