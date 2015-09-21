@@ -88,7 +88,6 @@ class doAuth
                 $this->loginModel->setIsAuthenticated(TRUE);
                 //Todo ok to store in $_SESSION here?
                 $_SESSION['isAuthenticated'] = TRUE;
-                $_SESSION[$_COOKIE['PHPSESSID']] = $_COOKIE['PHPSESSID'];
 
                 //Std message to be shown if regular flow without cookies etc!
                 $this->loginModel->setResponseMessage("Welcome");
@@ -102,15 +101,13 @@ class doAuth
                 //    && $this->loginModel->getIsAuthenticated()
                 //)
                 //{
-                    if($_SESSION[$_COOKIE['PHPSESSID']] === $_COOKIE['PHPSESSID'])
-                    {
 
-
-                    }
                     if(isset($_SESSION[$_COOKIE['PHPSESSID']]))
                     {
-                        $this->loginModel->setResponseMessage('');
-
+                        if($this->loginView->hasCookieName())
+                        {
+                            $this->loginModel->setResponseMessage('');
+                        }
                     }
                     else
                     {
@@ -118,6 +115,7 @@ class doAuth
                     }
                 //}
 
+                $_SESSION[$_COOKIE['PHPSESSID']] = $_COOKIE['PHPSESSID'];
 
                 //usecase 3 3.1 - 3.2
                 if
