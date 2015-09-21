@@ -76,7 +76,24 @@ class doAuth
 
                 //No Exception thrown. Login OK!
                 $this->loginModel->setIsAuthenticated(TRUE);
+
+
+                //TODO part of usecase 3.3 to get proper message shown.
+                //Not satisfied with this solution.
+                if
+                (
+                    $this->loginView->hasCookieName()
+                    && $this->loginView->hasCookiePassword()
+                    && $this->loginModel->getIsAuthenticated()
+                )
+                {
+                    $this->loginModel->setResponseMessage('Welcome back with cookie');
+                }
+
+                //Std message to be shown if regular flow without cookies etc!
                 $this->loginModel->setResponseMessage("Welcome");
+
+
                 //Todo ok to store in $_SESSION here?
                 $_SESSION['isAuthenticated'] = TRUE;
 
