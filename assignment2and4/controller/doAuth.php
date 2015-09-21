@@ -100,7 +100,7 @@ class doAuth
                     elseif
                     (
                         $this->smartQuestionsView->isGet()
-                        && $_SESSION[$_COOKIE['PHPSESSID']] === $_COOKIE['PHPSESSID']
+                        && isset($_SESSION[$_COOKIE['PHPSESSID']])
                     )
                     {
                             $this->loginModel->setResponseMessage('');
