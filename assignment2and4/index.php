@@ -53,15 +53,15 @@ $doAuth->tryAuth();
 $layoutView->render($loginModel->getIsAuthenticated(), $loginView, $dateTimeView);
 
 
-var_dump($_SESSION);
+//var_dump($_SESSION);
 
 //TODO > START
-assert
-(
-    false,
-    "Not Yet implemented! " .
-    "//TODO " .
-    "?" .
-    " in the Class: ".  __CLASS__ . " and the line " .  __LINE__
-);
+//assert
+//(
+//    false,
+//    "Not Yet implemented! " .
+//    "//TODO " .
+//    "?" .
+//    " in the Class: ".  __CLASS__ . " and the line " .  __LINE__
+//);
 //TODO < END

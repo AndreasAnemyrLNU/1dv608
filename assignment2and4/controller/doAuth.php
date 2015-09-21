@@ -89,21 +89,12 @@ class doAuth
                 //Todo ok to store in $_SESSION here?
                 $_SESSION['isAuthenticated'] = TRUE;
 
-
                     if
                     (
                         $this->smartQuestionsView->isPost()
                     )
                     {
                         $this->loginModel->setResponseMessage("Welcome");
-                    }
-                    elseif
-                    (
-                        $this->smartQuestionsView->isGet()
-                        && isset($_SESSION[$_COOKIE['PHPSESSID']])
-                    )
-                    {
-                            $this->loginModel->setResponseMessage('');
                     }
                     elseif
                     (
@@ -114,24 +105,30 @@ class doAuth
                         $this->loginModel->setResponseMessage('Welcome back with cookie');
                     }
 
-
-
-
-
-
-                $_SESSION[$_COOKIE['PHPSESSID']] = $_COOKIE['PHPSESSID'];
-
                 //usecase 3 3.1 - 3.2
                 if
                 (
                     $this->loginView->didUserMarkKeepMeLoggedIn()
                 )
                 {
-                    $this->loginView->createSessionCookies();
-                    $this->loginModel->setResponseMessage("Welcome and you will be remembered");
 
+                    if
+                    (
+                        $this->loginView->hasCookieName()
+                        && $this->loginView->hasCookiePassword()
+                    )
+                    {
+                        $this->loginModel->setResponseMessage("");
+                    }
+                    else
+                    {
+                        $this->loginModel->setResponseMessage("Welcome and you will be remembered");
+                    }
+
+                    $this->loginView->createSessionCookies();
                 }
 
+                $_SESSION[$_COOKIE['PHPSESSID']] = $_COOKIE['PHPSESSID'];
             }
             catch (\Exception $e)
             {
