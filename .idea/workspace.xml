@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6ffa548-7586-480d-8dc7-d93400b7f510" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" afterPath="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="1dv608.iws" />
@@ -674,7 +673,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442851912711</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Some progress with message. I hope...">
+      <created>1442852982399</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1442852982400</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TodoView">
@@ -724,7 +729,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Started usescase 1.2&#10;&#10;Created a controller named doAuth.&#10;&#10;doAuth has responsibilty for applications flow.&#10;" />
     <MESSAGE value="usecase 1.2&#10;&#10;added namespace view in LoginView etc. etc. ..." />
     <MESSAGE value="usecase 1.2&#10;&#10;namespaces....." />
     <MESSAGE value="usecase 1.2 ready for testing!" />
@@ -749,7 +753,8 @@
     <MESSAGE value="That´s great with test. When I think i did it. I just destroyed everything! haha :)&#10;&#10;I will never give up!&#10;I will never give up!" />
     <MESSAGE value="opppps..." />
     <MESSAGE value="Working in doAuth. New test now againg..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Working in doAuth. New test now againg..." />
+    <MESSAGE value="Some progress with message. I hope..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Some progress with message. I hope..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
