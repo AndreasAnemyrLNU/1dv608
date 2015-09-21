@@ -140,7 +140,7 @@ class doAuth
         }
         else
         {
-            echo "GET????";
+            //Empty
         }
     }
 }
