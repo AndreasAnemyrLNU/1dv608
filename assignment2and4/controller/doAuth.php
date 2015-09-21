@@ -45,18 +45,17 @@ class doAuth
     {
 
 
-
-
         //usecase 3.3 Login by cookies
         if
         (
-            //isset($_SESSION[$_COOKIE['PHPSESSID']])
-            $this->loginView->hasCookieName()
+            $this->smartQuestionsView->isGet()
+            && $this->loginView->hasCookieName()
             && $this->loginView->hasCookiePassword()
         )
         {
             $name       = $this->loginView->getValueOfCookieUserName();
             $password   = $this->loginView->getValueOfCookiePassWord();
+
             $this->loginView->setValueOfPostUserName($name);
             $this->loginView->setValueOfPostPassword($password);
         }
@@ -66,8 +65,11 @@ class doAuth
         (
             $this->smartQuestionsView->isPost()
             && $this->loginView->didClickLogin()
-            //|| $this->loginView->hasCookieName()
-            //&& $this->loginView->hasCookiePassword()
+            ||
+            //Destroyed PHPSESSID but existing cookies in browser.
+            $this->smartQuestionsView->isGet()
+            && $this->loginView->hasCookieName()
+            && $this->loginView->hasCookiePassword()
         )
         {
             try
@@ -100,8 +102,6 @@ class doAuth
                     && $this->loginModel->getIsAuthenticated()
                 )
                 {
-                    echo "Welcome back with cookie " . __CLASS__ . " " . __LINE__;
-
                     $this->loginModel->setResponseMessage('Welcome back with cookie');
                 }
 
@@ -140,7 +140,7 @@ class doAuth
         }
         else
         {
-
+            echo "GET????";
         }
     }
 }
