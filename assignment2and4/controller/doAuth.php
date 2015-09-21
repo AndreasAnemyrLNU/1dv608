@@ -107,7 +107,7 @@ class doAuth
                     }
                     elseif
                     (
-                        isset($_SESSION[$_COOKIE['PHPSESSID']])
+                        !isset($_SESSION[$_COOKIE['PHPSESSID']])
                         && $this->smartQuestionsView->isGet()
                     )
                     {
