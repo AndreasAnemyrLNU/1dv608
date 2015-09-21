@@ -43,6 +43,19 @@ class doAuth
     //usecase 1 (1.1 - 1.7 OK!
     public function tryAuth()
     {
+        //usecase 3.3 Login by cookies
+        if
+        (
+            $this->loginView->hasCookieName()
+            && $this->loginView->hasCookiePassword()
+        )
+        {
+            $name       = $this->loginView->getValueOfCookieUserName();
+            $password   = $this->loginView->getValueOfCookiePassWord();
+            $this->loginView->setValueOfPostUserName($name);
+            $this->loginView->setValueOfPostPassword($password);
+        }
+
         if
         (
             $this->smartQuestionsView->isPost()
@@ -56,8 +69,8 @@ class doAuth
                 // Exception is thrown if data or user is === not valid!
                 $user = new userModel
                                         (
-                                            $this->loginView->getRequestUserName(),
-                                            $this->loginView->getRequestPassword(),
+                                            $this->loginView->getValueOfPostUserName(),
+                                            $this->loginView->getValueOfPostPassword(),
                                             $this->loginModel
                                         );
 
@@ -67,7 +80,7 @@ class doAuth
                 //Todo ok to store in $_SESSION here?
                 $_SESSION['isAuthenticated'] = TRUE;
 
-                //usecase 3
+                //usecase 3 3.1 - 3.2
                 if
                 (
                     $this->loginView->didUserMarkKeepMeLoggedIn()
@@ -100,7 +113,8 @@ class doAuth
         else
         {
                 //Deleting existing cookies when first request of type GET
-                $this->loginView->deleteSessionCookies();
+
+                //$this->loginView->deleteSessionCookies();
 
                 //TODO > START
                             assert

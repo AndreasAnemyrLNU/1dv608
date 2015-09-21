@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/assignment2and4/view/LoginView.php" line="195" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/assignment2and4/view/LoginView.php" line="237" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6ffa548-7586-480d-8dc7-d93400b7f510" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment2and4/view/LoginView.php" afterPath="$PROJECT_DIR$/assignment2and4/view/LoginView.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" afterPath="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="1dv608.iws" />
@@ -69,8 +71,8 @@
       <file leaf-file-name="LoginView.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assignment2and4/view/LoginView.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.5636363">
-              <caret line="191" column="55" selection-start-line="191" selection-start-column="55" selection-end-line="191" selection-end-column="55" />
+            <state vertical-scroll-proportion="-17.236364">
+              <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
               <folding>
                 <element signature="e#502#594#0#PHP" expanded="false" />
                 <element signature="e#598#763#0#PHP" expanded="false" />
@@ -80,16 +82,32 @@
                 <element signature="e#1114#1277#0#PHP" expanded="false" />
                 <element signature="e#1520#1683#0#PHP" expanded="false" />
                 <element signature="e#1777#1877#0#PHP" expanded="false" />
-                <element signature="e#2909#3064#0#PHP" expanded="false" />
-                <element signature="e#3094#3257#0#PHP" expanded="false" />
-                <element signature="e#3260#3285#0#PHP" expanded="false" />
-                <element signature="e#3287#3445#0#PHP" expanded="false" />
-                <element signature="e#3448#3473#0#PHP" expanded="false" />
-                <element signature="e#3475#3641#0#PHP" expanded="false" />
-                <element signature="e#3742#3839#0#PHP" expanded="false" />
-                <marker date="1442827197040" expanded="true" signature="1367:1507" placeholder="..." />
-                <marker date="1442827197040" expanded="true" signature="1949:2655" placeholder="..." />
-                <marker date="1442827197040" expanded="true" signature="1966:2644" placeholder="..." />
+                <element signature="e#2667#2697#0#PHP" expanded="false" />
+                <element signature="e#2863#2965#0#PHP" expanded="false" />
+                <element signature="e#2968#3078#0#PHP" expanded="false" />
+                <element signature="e#3081#3108#0#PHP" expanded="false" />
+                <element signature="e#3199#3226#0#PHP" expanded="false" />
+                <element signature="e#3321#3348#0#PHP" expanded="false" />
+                <element signature="e#3350#3430#0#PHP" expanded="false" />
+                <element signature="e#3433#3527#0#PHP" expanded="false" />
+                <element signature="e#3530#3555#0#PHP" expanded="false" />
+                <element signature="e#3557#3712#0#PHP" expanded="false" />
+                <element signature="e#3715#3740#0#PHP" expanded="false" />
+                <element signature="e#3742#3905#0#PHP" expanded="false" />
+                <element signature="e#3908#3933#0#PHP" expanded="false" />
+                <element signature="e#3935#4093#0#PHP" expanded="false" />
+                <element signature="e#4096#4121#0#PHP" expanded="false" />
+                <element signature="e#4123#4289#0#PHP" expanded="false" />
+                <element signature="e#4292#4387#0#PHP" expanded="false" />
+                <element signature="e#4329#4384#0#PHP" expanded="false" />
+                <element signature="e#4390#4487#0#PHP" expanded="false" />
+                <element signature="e#4490#4655#0#PHP" expanded="false" />
+                <element signature="e#4658#4823#0#PHP" expanded="false" />
+                <element signature="e#4826#4903#0#PHP" expanded="false" />
+                <element signature="e#4906#5012#0#PHP" expanded="false" />
+                <marker date="1442834506843" expanded="true" signature="1367:1507" placeholder="..." />
+                <marker date="1442834506843" expanded="true" signature="1949:2655" placeholder="..." />
+                <marker date="1442834506843" expanded="true" signature="1966:2644" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -118,8 +136,8 @@
       <file leaf-file-name="doAuth.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assignment2and4/controller/doAuth.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8963093">
-              <caret line="77" column="93" selection-start-line="77" selection-start-column="93" selection-end-line="77" selection-end-column="93" />
+            <state vertical-scroll-proportion="0.6414763">
+              <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
               <folding>
                 <element signature="e#119#147#0#PHP" expanded="true" />
               </folding>
@@ -191,8 +209,8 @@
         <option value="$PROJECT_DIR$/assignment2and4/model/userModel.php" />
         <option value="$PROJECT_DIR$/assignment2and4/model/LoginModel.php" />
         <option value="$PROJECT_DIR$/assignment2and4/index.php" />
-        <option value="$PROJECT_DIR$/assignment2and4/view/LoginView.php" />
         <option value="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" />
+        <option value="$PROJECT_DIR$/assignment2and4/view/LoginView.php" />
       </list>
     </option>
   </component>
@@ -538,7 +556,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442827580897</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Aha. Nice!&#10;&#10;All test up to 3.2 now working. So it's time for coffee. I like this - I'm weird! :) :) :) !!!!!!">
+      <created>1442827936401</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1442827936401</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -554,17 +578,17 @@
     <frame x="619" y="36" width="1200" height="1059" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286638" sideWeight="0.48508772" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286638" sideWeight="0.48508772" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37068966" sideWeight="0.48596492" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286638" sideWeight="0.5149123" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286638" sideWeight="0.50877196" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291866" sideWeight="0.49253732" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29282296" sideWeight="0.4904051" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291866" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286638" sideWeight="0.49473685" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286638" sideWeight="0.49122807" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11567164" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15301724" sideWeight="0.47894737" order="3" side_tool="false" content_ui="tabs" />
@@ -605,7 +629,8 @@
     <MESSAGE value="All mandatory tests finished up to 2.4" />
     <MESSAGE value="Some analyses for test &gt;= 3.1" />
     <MESSAGE value="Some analyses for test &gt;= 3.1&#10;&#10;Some progress but no test done yet so far.&#10;Find assertions nice. Can be turned on/off when debuggin :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some analyses for test &gt;= 3.1&#10;&#10;Some progress but no test done yet so far.&#10;Find assertions nice. Can be turned on/off when debuggin :)" />
+    <MESSAGE value="Aha. Nice!&#10;&#10;All test up to 3.2 now working. So it's time for coffee. I like this - I'm weird! :) :) :) !!!!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aha. Nice!&#10;&#10;All test up to 3.2 now working. So it's time for coffee. I like this - I'm weird! :) :) :) !!!!!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -619,7 +644,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="27" />
+      <option name="time" value="28" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -661,16 +686,32 @@
             <element signature="e#1114#1277#0#PHP" expanded="false" />
             <element signature="e#1520#1683#0#PHP" expanded="false" />
             <element signature="e#1777#1877#0#PHP" expanded="false" />
-            <element signature="e#2909#3064#0#PHP" expanded="false" />
-            <element signature="e#3094#3257#0#PHP" expanded="false" />
-            <element signature="e#3260#3285#0#PHP" expanded="false" />
-            <element signature="e#3287#3445#0#PHP" expanded="false" />
-            <element signature="e#3448#3473#0#PHP" expanded="false" />
-            <element signature="e#3475#3641#0#PHP" expanded="false" />
-            <element signature="e#3742#3839#0#PHP" expanded="false" />
-            <marker date="1442827197040" expanded="true" signature="1367:1507" placeholder="..." />
-            <marker date="1442827197040" expanded="true" signature="1949:2655" placeholder="..." />
-            <marker date="1442827197040" expanded="true" signature="1966:2644" placeholder="..." />
+            <element signature="e#2667#2697#0#PHP" expanded="false" />
+            <element signature="e#2863#2965#0#PHP" expanded="false" />
+            <element signature="e#2968#3078#0#PHP" expanded="false" />
+            <element signature="e#3081#3108#0#PHP" expanded="false" />
+            <element signature="e#3199#3226#0#PHP" expanded="false" />
+            <element signature="e#3321#3348#0#PHP" expanded="false" />
+            <element signature="e#3350#3430#0#PHP" expanded="false" />
+            <element signature="e#3433#3527#0#PHP" expanded="false" />
+            <element signature="e#3530#3555#0#PHP" expanded="false" />
+            <element signature="e#3557#3712#0#PHP" expanded="false" />
+            <element signature="e#3715#3740#0#PHP" expanded="false" />
+            <element signature="e#3742#3905#0#PHP" expanded="false" />
+            <element signature="e#3908#3933#0#PHP" expanded="false" />
+            <element signature="e#3935#4093#0#PHP" expanded="false" />
+            <element signature="e#4096#4121#0#PHP" expanded="false" />
+            <element signature="e#4123#4289#0#PHP" expanded="false" />
+            <element signature="e#4292#4387#0#PHP" expanded="false" />
+            <element signature="e#4329#4384#0#PHP" expanded="false" />
+            <element signature="e#4390#4487#0#PHP" expanded="false" />
+            <element signature="e#4490#4655#0#PHP" expanded="false" />
+            <element signature="e#4658#4823#0#PHP" expanded="false" />
+            <element signature="e#4826#4903#0#PHP" expanded="false" />
+            <element signature="e#4906#5012#0#PHP" expanded="false" />
+            <marker date="1442834506843" expanded="true" signature="1367:1507" placeholder="..." />
+            <marker date="1442834506843" expanded="true" signature="1949:2655" placeholder="..." />
+            <marker date="1442834506843" expanded="true" signature="1966:2644" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -849,8 +890,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assignment2and4/view/LoginView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.5636363">
-          <caret line="191" column="55" selection-start-line="191" selection-start-column="55" selection-end-line="191" selection-end-column="55" />
+        <state vertical-scroll-proportion="-17.236364">
+          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
           <folding>
             <element signature="e#502#594#0#PHP" expanded="false" />
             <element signature="e#598#763#0#PHP" expanded="false" />
@@ -860,24 +901,40 @@
             <element signature="e#1114#1277#0#PHP" expanded="false" />
             <element signature="e#1520#1683#0#PHP" expanded="false" />
             <element signature="e#1777#1877#0#PHP" expanded="false" />
-            <element signature="e#2909#3064#0#PHP" expanded="false" />
-            <element signature="e#3094#3257#0#PHP" expanded="false" />
-            <element signature="e#3260#3285#0#PHP" expanded="false" />
-            <element signature="e#3287#3445#0#PHP" expanded="false" />
-            <element signature="e#3448#3473#0#PHP" expanded="false" />
-            <element signature="e#3475#3641#0#PHP" expanded="false" />
-            <element signature="e#3742#3839#0#PHP" expanded="false" />
-            <marker date="1442827197040" expanded="true" signature="1367:1507" placeholder="..." />
-            <marker date="1442827197040" expanded="true" signature="1949:2655" placeholder="..." />
-            <marker date="1442827197040" expanded="true" signature="1966:2644" placeholder="..." />
+            <element signature="e#2667#2697#0#PHP" expanded="false" />
+            <element signature="e#2863#2965#0#PHP" expanded="false" />
+            <element signature="e#2968#3078#0#PHP" expanded="false" />
+            <element signature="e#3081#3108#0#PHP" expanded="false" />
+            <element signature="e#3199#3226#0#PHP" expanded="false" />
+            <element signature="e#3321#3348#0#PHP" expanded="false" />
+            <element signature="e#3350#3430#0#PHP" expanded="false" />
+            <element signature="e#3433#3527#0#PHP" expanded="false" />
+            <element signature="e#3530#3555#0#PHP" expanded="false" />
+            <element signature="e#3557#3712#0#PHP" expanded="false" />
+            <element signature="e#3715#3740#0#PHP" expanded="false" />
+            <element signature="e#3742#3905#0#PHP" expanded="false" />
+            <element signature="e#3908#3933#0#PHP" expanded="false" />
+            <element signature="e#3935#4093#0#PHP" expanded="false" />
+            <element signature="e#4096#4121#0#PHP" expanded="false" />
+            <element signature="e#4123#4289#0#PHP" expanded="false" />
+            <element signature="e#4292#4387#0#PHP" expanded="false" />
+            <element signature="e#4329#4384#0#PHP" expanded="false" />
+            <element signature="e#4390#4487#0#PHP" expanded="false" />
+            <element signature="e#4490#4655#0#PHP" expanded="false" />
+            <element signature="e#4658#4823#0#PHP" expanded="false" />
+            <element signature="e#4826#4903#0#PHP" expanded="false" />
+            <element signature="e#4906#5012#0#PHP" expanded="false" />
+            <marker date="1442834506843" expanded="true" signature="1367:1507" placeholder="..." />
+            <marker date="1442834506843" expanded="true" signature="1949:2655" placeholder="..." />
+            <marker date="1442834506843" expanded="true" signature="1966:2644" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assignment2and4/controller/doAuth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8963093">
-          <caret line="77" column="93" selection-start-line="77" selection-start-column="93" selection-end-line="77" selection-end-column="93" />
+        <state vertical-scroll-proportion="0.6414763">
+          <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
           <folding>
             <element signature="e#119#147#0#PHP" expanded="true" />
           </folding>

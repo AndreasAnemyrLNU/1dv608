@@ -101,17 +101,59 @@ class LoginView {
 	/**
 	 * @return string
      */
-	public function getRequestUserName()
+	public function getValueOfPostUserName()
 	{
 		return $_POST[self::$name];
+	}
+
+	public function setValueOfPostUserName($name)
+	{
+		$_POST[self::$name] = $name;
+	}
+
+	public function hasCookieName()
+	{
+		if(isset($_COOKIE[self::$cookieName]))
+		{
+			return TRUE;
+		}
+	}
+
+	public function hasCookiePassword()
+	{
+		if(isset($_COOKIE[self::$cookiePassword]))
+		{
+			return TRUE;
+		}
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getRequestPassword()
+	public function getValueOfCookieUserName()
+	{
+		return $_COOKIE[self::$cookieName];
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getValueOfCookiePassWord()
+	{
+		return $_COOKIE[self::$cookiePassword];
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getValueOfPostPassword()
 	{
 		return $_POST[self::$password];
+	}
+
+	public function setValueOfPostPassword($password)
+	{
+		$_POST[self::$password] = $password;
 	}
 
 	/**
