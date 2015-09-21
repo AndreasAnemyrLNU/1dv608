@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6ffa548-7586-480d-8dc7-d93400b7f510" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" afterPath="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment2and4/view/LoginView.php" afterPath="$PROJECT_DIR$/assignment2and4/view/LoginView.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="1dv608.iws" />
@@ -67,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginView.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LoginView.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assignment2and4/view/LoginView.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.0363636">
-              <caret line="242" column="36" selection-start-line="242" selection-start-column="30" selection-end-line="242" selection-end-column="36" />
+            <state vertical-scroll-proportion="1.4722222">
+              <caret line="239" column="80" selection-start-line="239" selection-start-column="80" selection-end-line="239" selection-end-column="80" />
               <folding>
                 <element signature="e#502#594#0#PHP" expanded="false" />
                 <element signature="e#598#763#0#PHP" expanded="false" />
@@ -100,11 +100,11 @@
                 <element signature="e#4292#4387#0#PHP" expanded="false" />
                 <element signature="e#4329#4384#0#PHP" expanded="false" />
                 <element signature="e#4390#4487#0#PHP" expanded="false" />
-                <element signature="e#4870#4947#0#PHP" expanded="false" />
-                <element signature="e#4950#5056#0#PHP" expanded="false" />
-                <marker date="1442838074666" expanded="true" signature="1367:1507" placeholder="..." />
-                <marker date="1442838074666" expanded="true" signature="1949:2655" placeholder="..." />
-                <marker date="1442838074666" expanded="true" signature="1966:2644" placeholder="..." />
+                <element signature="e#4920#4997#0#PHP" expanded="false" />
+                <element signature="e#5000#5106#0#PHP" expanded="false" />
+                <marker date="1442838768438" expanded="true" signature="1367:1507" placeholder="..." />
+                <marker date="1442838768438" expanded="true" signature="1949:2655" placeholder="..." />
+                <marker date="1442838768438" expanded="true" signature="1966:2644" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -130,10 +130,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="doAuth.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="doAuth.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assignment2and4/controller/doAuth.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.71666664">
+            <state vertical-scroll-proportion="-7.0363636">
               <caret line="132" column="9" selection-start-line="132" selection-start-column="9" selection-end-line="132" selection-end-column="9" />
               <folding>
                 <element signature="e#6#95#0#PHP" expanded="true" />
@@ -207,8 +207,8 @@
         <option value="$PROJECT_DIR$/assignment2and4/model/userModel.php" />
         <option value="$PROJECT_DIR$/assignment2and4/model/LoginModel.php" />
         <option value="$PROJECT_DIR$/assignment2and4/index.php" />
-        <option value="$PROJECT_DIR$/assignment2and4/view/LoginView.php" />
         <option value="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" />
+        <option value="$PROJECT_DIR$/assignment2and4/view/LoginView.php" />
       </list>
     </option>
   </component>
@@ -578,7 +578,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442838194539</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="deleting trouble.....&#10;&#10;Now it's time for testing 3.3 again">
+      <created>1442838379939</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1442838379939</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView">
@@ -724,11 +730,11 @@
             <element signature="e#4292#4387#0#PHP" expanded="false" />
             <element signature="e#4329#4384#0#PHP" expanded="false" />
             <element signature="e#4390#4487#0#PHP" expanded="false" />
-            <element signature="e#4870#4947#0#PHP" expanded="false" />
-            <element signature="e#4950#5056#0#PHP" expanded="false" />
-            <marker date="1442838074666" expanded="true" signature="1367:1507" placeholder="..." />
-            <marker date="1442838074666" expanded="true" signature="1949:2655" placeholder="..." />
-            <marker date="1442838074666" expanded="true" signature="1966:2644" placeholder="..." />
+            <element signature="e#4920#4997#0#PHP" expanded="false" />
+            <element signature="e#5000#5106#0#PHP" expanded="false" />
+            <marker date="1442838768438" expanded="true" signature="1367:1507" placeholder="..." />
+            <marker date="1442838768438" expanded="true" signature="1949:2655" placeholder="..." />
+            <marker date="1442838768438" expanded="true" signature="1966:2644" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -905,10 +911,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assignment2and4/view/LoginView.php">
+    <entry file="file://$PROJECT_DIR$/assignment2and4/controller/doAuth.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.0363636">
-          <caret line="242" column="36" selection-start-line="242" selection-start-column="30" selection-end-line="242" selection-end-column="36" />
+          <caret line="132" column="9" selection-start-line="132" selection-start-column="9" selection-end-line="132" selection-end-column="9" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+            <element signature="e#119#147#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assignment2and4/view/LoginView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4722222">
+          <caret line="239" column="80" selection-start-line="239" selection-start-column="80" selection-end-line="239" selection-end-column="80" />
           <folding>
             <element signature="e#502#594#0#PHP" expanded="false" />
             <element signature="e#598#763#0#PHP" expanded="false" />
@@ -937,22 +954,11 @@
             <element signature="e#4292#4387#0#PHP" expanded="false" />
             <element signature="e#4329#4384#0#PHP" expanded="false" />
             <element signature="e#4390#4487#0#PHP" expanded="false" />
-            <element signature="e#4870#4947#0#PHP" expanded="false" />
-            <element signature="e#4950#5056#0#PHP" expanded="false" />
-            <marker date="1442838074666" expanded="true" signature="1367:1507" placeholder="..." />
-            <marker date="1442838074666" expanded="true" signature="1949:2655" placeholder="..." />
-            <marker date="1442838074666" expanded="true" signature="1966:2644" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment2and4/controller/doAuth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71666664">
-          <caret line="132" column="9" selection-start-line="132" selection-start-column="9" selection-end-line="132" selection-end-column="9" />
-          <folding>
-            <element signature="e#6#95#0#PHP" expanded="true" />
-            <element signature="e#119#147#0#PHP" expanded="true" />
+            <element signature="e#4920#4997#0#PHP" expanded="false" />
+            <element signature="e#5000#5106#0#PHP" expanded="false" />
+            <marker date="1442838768438" expanded="true" signature="1367:1507" placeholder="..." />
+            <marker date="1442838768438" expanded="true" signature="1949:2655" placeholder="..." />
+            <marker date="1442838768438" expanded="true" signature="1966:2644" placeholder="..." />
           </folding>
         </state>
       </provider>

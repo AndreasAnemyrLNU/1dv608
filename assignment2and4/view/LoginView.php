@@ -236,8 +236,8 @@ class LoginView {
 
 	public function deleteSessionCookies()
 	{
-		setcookie(self::$cookieName, 		'Admin', 		time()-3600);
-		setcookie(self::$cookiePassword, 	'Password', 	time()-3600);
+		setcookie(self::$cookieName, 		$this->getValueOfCookieUserName(), 		time()-3600);
+		setcookie(self::$cookiePassword, 	$this->getValueOfCookiePassWord(),	 	time()-3600);
 	}
 
 	public function deactivateLogoutButton()
