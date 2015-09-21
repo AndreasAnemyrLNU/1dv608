@@ -43,9 +43,14 @@ class doAuth
     //usecase 1 (1.1 - 1.7 OK!
     public function tryAuth()
     {
+
+
+
+
         //usecase 3.3 Login by cookies
         if
         (
+            //isset($_SESSION[$_COOKIE['PHPSESSID']])
             $this->loginView->hasCookieName()
             && $this->loginView->hasCookiePassword()
         )
@@ -56,13 +61,13 @@ class doAuth
             $this->loginView->setValueOfPostPassword($password);
         }
 
+        //Get value froom cookies if PHPSESSID ok??? TEST?
         if
         (
             $this->smartQuestionsView->isPost()
             && $this->loginView->didClickLogin()
-            || $this->loginView->hasCookieName()
-            && $this->loginView->hasCookiePassword()
-
+            //|| $this->loginView->hasCookieName()
+            //&& $this->loginView->hasCookiePassword()
         )
         {
             try
@@ -81,6 +86,7 @@ class doAuth
                 $this->loginModel->setIsAuthenticated(TRUE);
                 //Todo ok to store in $_SESSION here?
                 $_SESSION['isAuthenticated'] = TRUE;
+                $_SESSION[$_COOKIE['PHPSESSID']] = $_COOKIE['PHPSESSID'];
 
                 //Std message to be shown if regular flow without cookies etc!
                 $this->loginModel->setResponseMessage("Welcome");
@@ -94,6 +100,8 @@ class doAuth
                     && $this->loginModel->getIsAuthenticated()
                 )
                 {
+                    echo "Welcome back with cookie " . __CLASS__ . " " . __LINE__;
+
                     $this->loginModel->setResponseMessage('Welcome back with cookie');
                 }
 
@@ -126,7 +134,8 @@ class doAuth
             $this->loginModel->setIsAuthenticated(FALSE);
             $this->loginView->deactivateLogoutButton();
             $this->loginModel->setResponseMessage("Bye bye!");
-
+            unset($_SESSION);
+            unset($_COOKIE);
             //$this->loginView->deleteSessionCookies();
         }
         else

@@ -11,12 +11,16 @@ namespace model;
 
 class LoginModel
 {
+    private static $sessionID;
+
     private $responseMessage;
 
     private $isAuthenticated;
 
     public function __construct()
     {
+
+
         $this->responseMessage = "";
 
         if(isset($_SESSION['isAuthenticated']))
@@ -30,6 +34,22 @@ class LoginModel
 
     }
 
+
+    /**
+     * @return mixed
+     */
+    public static function getSessionID()
+    {
+        return self::$sessionID;
+    }
+
+    /**
+     * @param mixed $sessionID
+     */
+    public static function setSessionID($sessionID)
+    {
+        self::$sessionID = $sessionID;
+    }
 
     /**
      * @return string

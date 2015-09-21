@@ -53,6 +53,8 @@ $doAuth->tryAuth();
 $layoutView->render($loginModel->getIsAuthenticated(), $loginView, $dateTimeView);
 
 
+var_dump($_SESSION);
+
 //TODO > START
 assert
 (
