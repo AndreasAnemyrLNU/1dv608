@@ -134,9 +134,9 @@ class doAuth
             $this->loginModel->setIsAuthenticated(FALSE);
             $this->loginView->deactivateLogoutButton();
             $this->loginModel->setResponseMessage("Bye bye!");
-            unset($_SESSION);
-            unset($_COOKIE);
-            //$this->loginView->deleteSessionCookies();
+            //unset($_SESSION);
+            //unset($_COOKIE);
+            $this->loginView->deleteSessionCookies();
         }
         else
         {
