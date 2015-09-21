@@ -235,7 +235,7 @@ class LoginView {
 		setcookie(self::$cookiePassword, 	base64_encode($this->getValueOfPostPassword()), 	time()+3600);
 	}
 
-	public function deleteSessionCookies()I will never give up!
+	public function deleteSessionCookies()
 	{
 		setcookie(self::$cookieName, 		$this->getValueOfCookieUserName(), 		time()-3600);
 		setcookie(self::$cookiePassword, 	$this->getValueOfCookiePassWord(),	 	time()-3600);
