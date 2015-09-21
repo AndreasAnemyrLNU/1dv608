@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6ffa548-7586-480d-8dc7-d93400b7f510" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment2and4/view/LoginView.php" afterPath="$PROJECT_DIR$/assignment2and4/view/LoginView.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" afterPath="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment2and4/index.php" afterPath="$PROJECT_DIR$/assignment2and4/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="1dv608.iws" />
@@ -536,7 +532,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442779463493</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Some analyses for test &gt;= 3.1&#10;&#10;Some progress but no test done yet so far.&#10;Find assertions nice. Can be turned on/off when debuggin :)">
+      <created>1442827580897</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1442827580897</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
@@ -601,7 +603,9 @@
     <MESSAGE value="And now som progress.&#10;&#10;1.7 with much more OO and also using of exceptions... :)" />
     <MESSAGE value="Ahaaa. I like it a lot. Very big progress now, I think!&#10;&#10;....and I also have some new strategies when coding. Defense programming!&#10;&#10;" />
     <MESSAGE value="All mandatory tests finished up to 2.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="All mandatory tests finished up to 2.4" />
+    <MESSAGE value="Some analyses for test &gt;= 3.1" />
+    <MESSAGE value="Some analyses for test &gt;= 3.1&#10;&#10;Some progress but no test done yet so far.&#10;Find assertions nice. Can be turned on/off when debuggin :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some analyses for test &gt;= 3.1&#10;&#10;Some progress but no test done yet so far.&#10;Find assertions nice. Can be turned on/off when debuggin :)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
