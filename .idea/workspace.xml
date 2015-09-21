@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6ffa548-7586-480d-8dc7-d93400b7f510" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment2and4/view/LoginView.php" afterPath="$PROJECT_DIR$/assignment2and4/view/LoginView.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" afterPath="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="1dv608.iws" />
@@ -70,10 +70,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginView.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LoginView.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assignment2and4/view/LoginView.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.56886226">
+            <state vertical-scroll-proportion="-0.45454547">
               <caret line="233" column="96" selection-start-line="233" selection-start-column="96" selection-end-line="233" selection-end-column="96" />
               <folding>
                 <element signature="e#502#594#0#PHP" expanded="false" />
@@ -130,11 +130,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="doAuth.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="doAuth.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assignment2and4/controller/doAuth.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.8">
-              <caret line="118" column="13" selection-start-line="118" selection-start-column="13" selection-end-line="118" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.6606786">
+              <caret line="104" column="57" selection-start-line="104" selection-start-column="57" selection-end-line="104" selection-end-column="57" />
               <folding>
                 <element signature="e#6#95#0#PHP" expanded="true" />
                 <element signature="e#119#147#0#PHP" expanded="true" />
@@ -207,8 +207,8 @@
         <option value="$PROJECT_DIR$/assignment2and4/model/LoginModel.php" />
         <option value="$PROJECT_DIR$/assignment2and4/view/SmartQuestionsView.php" />
         <option value="$PROJECT_DIR$/assignment2and4/index.php" />
-        <option value="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" />
         <option value="$PROJECT_DIR$/assignment2and4/view/LoginView.php" />
+        <option value="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" />
       </list>
     </option>
   </component>
@@ -650,7 +650,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442849771456</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="opppps...">
+      <created>1442849818954</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1442849818954</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView">
@@ -700,7 +706,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finished usecase  1.1&#10;Model Created: &#10;DateTimeModel" />
     <MESSAGE value="Finished usecase  1.1&#10;Automated test OK!&#10;&#10;New Class in namespace model has been Created: &#10;No asserts or exceptions has yet been created in __constructor&#10;&#10;All members are private. &#10;Accessormethods created for these...&#10;&#10;Class&#10;(DateTimeModel)" />
     <MESSAGE value="Started usescase 1.2&#10;&#10;Created a controller named doAuth.&#10;&#10;doAuth has responsibilty for applications flow.&#10;" />
     <MESSAGE value="usecase 1.2&#10;&#10;added namespace view in LoginView etc. etc. ..." />
@@ -725,7 +730,8 @@
     <MESSAGE value="test turn of php errors and deploy for new test...." />
     <MESSAGE value="That´s great with test. When I think i did it. I just destroyed everything! haha :)&#10;&#10;I will never give up!" />
     <MESSAGE value="That´s great with test. When I think i did it. I just destroyed everything! haha :)&#10;&#10;I will never give up!&#10;I will never give up!" />
-    <option name="LAST_COMMIT_MESSAGE" value="That´s great with test. When I think i did it. I just destroyed everything! haha :)&#10;&#10;I will never give up!&#10;I will never give up!" />
+    <MESSAGE value="opppps..." />
+    <option name="LAST_COMMIT_MESSAGE" value="opppps..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -981,20 +987,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assignment2and4/controller/doAuth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.8">
-          <caret line="118" column="13" selection-start-line="118" selection-start-column="13" selection-end-line="118" selection-end-column="13" />
-          <folding>
-            <element signature="e#6#95#0#PHP" expanded="true" />
-            <element signature="e#119#147#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assignment2and4/view/LoginView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56886226">
+        <state vertical-scroll-proportion="-0.45454547">
           <caret line="233" column="96" selection-start-line="233" selection-start-column="96" selection-end-line="233" selection-end-column="96" />
           <folding>
             <element signature="e#502#594#0#PHP" expanded="false" />
@@ -1026,6 +1021,17 @@
             <marker date="1442849806091" expanded="true" signature="1367:1507" placeholder="..." />
             <marker date="1442849806091" expanded="true" signature="1949:2655" placeholder="..." />
             <marker date="1442849806091" expanded="true" signature="1966:2644" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assignment2and4/controller/doAuth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6606786">
+          <caret line="104" column="57" selection-start-line="104" selection-start-column="57" selection-end-line="104" selection-end-column="57" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+            <element signature="e#119#147#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

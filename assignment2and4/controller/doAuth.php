@@ -95,15 +95,24 @@ class doAuth
 
                 //TODO part of usecase 3.3 to get proper message shown.
                 //Not satisfied with this solution.
-                if
-                (
-                    $this->loginView->hasCookieName()
-                    && $this->loginView->hasCookiePassword()
-                    && $this->loginModel->getIsAuthenticated()
-                )
-                {
-                    $this->loginModel->setResponseMessage('Welcome back with cookie');
-                }
+                //if
+                //(
+                //    $this->loginView->hasCookieName()
+                //    && $this->loginView->hasCookiePassword()
+                //    && $this->loginModel->getIsAuthenticated()
+                //)
+                //{
+                    if($_SESSION[$_COOKIE['PHPSESSID']] === $_COOKIE['PHPSESSID'])
+                    {
+                        $this->loginModel->setResponseMessage = "";
+
+                    }
+                    else
+                    {
+                        $this->loginModel->setResponseMessage('Welcome back with cookie');
+                    }
+                //}
+
 
                 //usecase 3 3.1 - 3.2
                 if
