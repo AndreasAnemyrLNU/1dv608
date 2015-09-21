@@ -127,8 +127,6 @@ class doAuth
             $this->loginView->deactivateLogoutButton();
             $this->loginModel->setResponseMessage("Bye bye!");
 
-            echo "logout pressed?";
-
             $this->loginView->deleteSessionCookies();
         }
         else
