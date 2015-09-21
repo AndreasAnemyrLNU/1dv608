@@ -89,31 +89,35 @@ class doAuth
                 //Todo ok to store in $_SESSION here?
                 $_SESSION['isAuthenticated'] = TRUE;
 
-                //Std message to be shown if regular flow without cookies etc!
-                $this->loginModel->setResponseMessage("Welcome");
 
-                //TODO part of usecase 3.3 to get proper message shown.
-                //Not satisfied with this solution.
-                //if
-                //(
-                //    $this->loginView->hasCookieName()
-                //    && $this->loginView->hasCookiePassword()
-                //    && $this->loginModel->getIsAuthenticated()
-                //)
-                //{
-
-                    if(isset($_SESSION[$_COOKIE['PHPSESSID']]))
+                    if
+                    (
+                        $this->smartQuestionsView->isPost()
+                    )
                     {
-                        if($this->loginView->hasCookieName())
-                        {
-                            $this->loginModel->setResponseMessage('');
-                        }
+                        $this->loginModel->setResponseMessage("Welcome");
                     }
-                    else
+                    elseif
+                    (
+                        $this->smartQuestionsView->isGet()
+                        && $_SESSION[$_COOKIE['PHPSESSID']] === $_COOKIE['PHPSESSID']
+                    )
+                    {
+                            $this->loginModel->setResponseMessage('');
+                    }
+                    elseif
+                    (
+                        isset($_SESSION[$_COOKIE['PHPSESSID']])
+                        && $this->smartQuestionsView->isGet()
+                    )
                     {
                         $this->loginModel->setResponseMessage('Welcome back with cookie');
                     }
-                //}
+
+
+
+
+
 
                 $_SESSION[$_COOKIE['PHPSESSID']] = $_COOKIE['PHPSESSID'];
 
