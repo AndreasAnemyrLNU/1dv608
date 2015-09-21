@@ -111,7 +111,6 @@ class doAuth
                     $this->loginView->didUserMarkKeepMeLoggedIn()
                 )
                 {
-                    echo "createSessionCookie called from " . __CLASS__ . " " . __LINE__;
                     $this->loginView->createSessionCookies();
                     $this->loginModel->setResponseMessage("Welcome and you will be remembered");
 
@@ -140,7 +139,7 @@ class doAuth
         }
         else
         {
-            header("location: ?");
+            //Empty
         }
     }
 }
