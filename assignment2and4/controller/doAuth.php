@@ -60,6 +60,9 @@ class doAuth
         (
             $this->smartQuestionsView->isPost()
             && $this->loginView->didClickLogin()
+            || $this->loginView->hasCookieName()
+            && $this->loginView->hasCookiePassword()
+
         )
         {
             try
@@ -76,7 +79,11 @@ class doAuth
 
                 //No Exception thrown. Login OK!
                 $this->loginModel->setIsAuthenticated(TRUE);
+                //Todo ok to store in $_SESSION here?
+                $_SESSION['isAuthenticated'] = TRUE;
 
+                //Std message to be shown if regular flow without cookies etc!
+                $this->loginModel->setResponseMessage("Welcome");
 
                 //TODO part of usecase 3.3 to get proper message shown.
                 //Not satisfied with this solution.
@@ -89,13 +96,6 @@ class doAuth
                 {
                     $this->loginModel->setResponseMessage('Welcome back with cookie');
                 }
-
-                //Std message to be shown if regular flow without cookies etc!
-                $this->loginModel->setResponseMessage("Welcome");
-
-
-                //Todo ok to store in $_SESSION here?
-                $_SESSION['isAuthenticated'] = TRUE;
 
                 //usecase 3 3.1 - 3.2
                 if
@@ -126,23 +126,14 @@ class doAuth
             $this->loginModel->setIsAuthenticated(FALSE);
             $this->loginView->deactivateLogoutButton();
             $this->loginModel->setResponseMessage("Bye bye!");
+
+            echo "logout pressed?";
+
+            $this->loginView->deleteSessionCookies();
         }
         else
         {
-                //Deleting existing cookies when first request of type GET
 
-                //$this->loginView->deleteSessionCookies();
-
-                //TODO > START
-                            assert
-                            (
-                                false,
-                                "Not Yet implemented!" .
-                                "//TODO" .
-                                "Handle stuff in first get request?" .
-                                "in the Class: ".  __CLASS__ . " and the line " .  __LINE__
-                            );
-                //TODO < END
         }
     }
 }

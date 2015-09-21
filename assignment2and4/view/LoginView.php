@@ -230,8 +230,8 @@ class LoginView {
 
 	public function createSessionCookies()
 	{
-		setcookie(self::$cookieName, 		'Admin', 		time()+3600);
-		setcookie(self::$cookiePassword, 	'Password', 	time()+3600);
+		setcookie(self::$cookieName, 		$this->getValueOfPostUserName(), 	time()+3600);
+		setcookie(self::$cookiePassword, 	$this->getValueOfPostPassword(), 	time()+3600);
 	}
 
 	public function deleteSessionCookies()
