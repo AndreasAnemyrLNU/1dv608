@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6ffa548-7586-480d-8dc7-d93400b7f510" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" afterPath="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="1dv608.iws" />
@@ -477,12 +476,6 @@
       <option name="number" value="Default" />
       <updated>1441224735876</updated>
     </task>
-    <task id="LOCAL-00001" summary="Finished usecase  1.1&#10;Automated test OK!&#10;&#10;New Class in namespace model has been Created: &#10;No asserts or exceptions has yet been created in __constructor&#10;&#10;All members are private. &#10;Accessormethods created for these...&#10;&#10;Class&#10;(DateTimeModel)">
-      <created>1442579956925</created>
-      <option name="number" value="00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1442579956925</updated>
-    </task>
     <task id="LOCAL-00002" summary="Started usescase 1.2&#10;&#10;Created a controller named doAuth.&#10;&#10;doAuth has responsibilty for applications flow.&#10;">
       <created>1442581540861</created>
       <option name="number" value="00002" />
@@ -771,7 +764,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442933272724</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="maybe some progress. Sessions....">
+      <created>1442933405747</created>
+      <option name="number" value="00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1442933405828</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TodoView">
