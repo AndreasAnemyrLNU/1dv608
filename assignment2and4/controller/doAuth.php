@@ -111,9 +111,19 @@ class doAuth
                     if
                     (
                         $this->smartQuestionsView->isPost()
+                        && $this->loginModel->isNotTracked()
                     )
                     {
                         $this->loginModel->setResponseMessage("Welcome");
+                        $this->loginModel->startTrackUser();
+                    }
+                    elseif
+                    (
+                        $this->smartQuestionsView->isPost()
+                        && $this->loginModel->isTracked()
+                    )
+                    {
+                        $this->loginModel->setResponseMessage("");
                     }
                     elseif
                     (

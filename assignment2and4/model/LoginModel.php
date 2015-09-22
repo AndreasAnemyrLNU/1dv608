@@ -121,4 +121,32 @@ class LoginModel
         $this->password = $password;
         $_SESSION['password'] = $password;
     }
+
+    public function startTrackUser()
+    {
+        $_SESSION['isTracked'] = TRUE;
+    }
+
+    public function stopTrackUser()
+    {
+        $_SESSION['isTracked'] = FALSE;
+    }
+
+    public function isTracked()
+    {
+        if(isset($_SESSION['isTracked']))
+        {
+            return $_SESSION['isTracked'] === TRUE ? TRUE : FALSE;
+        }
+        return FALSE;
+    }
+
+    public function isNotTracked()
+    {
+        if(isset($_SESSION['isTracked']))
+        {
+            return $_SESSION['isTracked'] === FALSE ? TRUE : FALSE;
+        }
+        return TRUE;
+    }
 }
