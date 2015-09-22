@@ -75,22 +75,22 @@ class doAuth
             try
             {
                 //usecase 3.4 Failed login by manipulated cookies
-//                if
-//                (
-//                    (
-//                        $this->loginView->hasCookieName()
-//                        && $this->loginView->hasCookiePassword()
-//                    )
-//                    &&
-//                    (
-//                        $_SESSION['user'] !== $this->loginView->getValueOfCookieUserName()
-//                        && $_SESSION['password'] !== $this->loginView->getValueOfPostPassword()
-//
-//                    )
-//                )
-//                {
-//                    throw new \Exception('Wrong information in cookies');
-//                }
+                if
+                (
+                    (
+                        $this->loginView->hasCookieName()
+                        && $this->loginView->hasCookiePassword()
+                    )
+                    &&
+                    (
+                        $_SESSION['user'] !== $this->loginView->getValueOfCookieUserName()
+                        && $_SESSION['password'] !== $this->loginView->getValueOfPostPassword()
+
+                    )
+                )
+                {
+                    throw new \Exception('Wrong information in cookies');
+                }
 
 
                 //Before! __Constructor accept to create a userModel
