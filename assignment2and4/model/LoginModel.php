@@ -149,4 +149,27 @@ class LoginModel
         }
         return TRUE;
     }
+
+    public function startTrackThisIsACookieUser()
+    {
+        $_SESSION['isACookieUser'] = TRUE;
+    }
+
+    public function isACookieUser()
+    {
+        if(isset($_SESSION['isACookieUser']))
+        {
+            return $_SESSION['isTracked'] === TRUE ? TRUE : FALSE;
+        }
+        return FALSE;
+    }
+
+    public function isNotACookieUser()
+    {
+        if(isset($_SESSION['isACookieUser']))
+        {
+            return $_SESSION['isACookieUser'] === FALSE ? TRUE : FALSE;
+        }
+        return TRUE;
+    }
 }
