@@ -17,10 +17,12 @@ class LoginModel
 
     private $isAuthenticated;
 
+    private $user;
+
+    private $password;
+
     public function __construct()
     {
-
-
         $this->responseMessage = "";
 
         if(isset($_SESSION['isAuthenticated']))
@@ -84,5 +86,39 @@ class LoginModel
         //maybe string should be private static? :)
         $_SESSION['isAuthenticated'] = $isAuthenticated;
         $this->isAuthenticated = $isAuthenticated;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+        $_SESSION['user'] = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param mixed $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+        $_SESSION['password'] = $password;
     }
 }

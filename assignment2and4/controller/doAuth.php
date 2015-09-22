@@ -74,6 +74,25 @@ class doAuth
         {
             try
             {
+                //usecase 3.4 Failed login by manipulated cookies
+                if
+                (
+                    (
+                        $this->loginView->hasCookieName()
+                        && $this->loginView->hasCookiePassword()
+                    )
+                    &&
+                    (
+                        $_SESSION['user'] !== $this->loginView->getValueOfCookieUserName()
+                        && $_SESSION['password'] !== $this->loginView->getValueOfPostPassword()
+
+                    )
+                )
+                {
+                    throw new \Exception('Wrong information in cookies');
+                }
+
+
                 //Before! __Constructor accept to create a userModel
                 //validating is done in and by the __constructor.
                 // Exception is thrown if data or user is === not valid!
@@ -128,7 +147,12 @@ class doAuth
                     $this->loginView->createSessionCookies();
                 }
 
-                $_SESSION[$_COOKIE['PHPSESSID']] = $_COOKIE['PHPSESSID'];
+                //If Login is Ok - User is saved in loginModel.
+                //User also saved in $_SESSION!! (in setters of loginModel)
+                $this->loginModel->setUser      ($this->loginView->getValueOfPostUserName());
+                $this->loginModel->setPassword  ($this->loginView->getValueOfPostPassword());
+
+                //$_SESSION[$_COOKIE['PHPSESSID']] = $_COOKIE['PHPSESSID'];
             }
             catch (\Exception $e)
             {
@@ -146,8 +170,6 @@ class doAuth
             $this->loginModel->setIsAuthenticated(FALSE);
             $this->loginView->deactivateLogoutButton();
             $this->loginModel->setResponseMessage("Bye bye!");
-            //unset($_SESSION);
-            //unset($_COOKIE);
             $this->loginView->deleteSessionCookies();
         }
         else
