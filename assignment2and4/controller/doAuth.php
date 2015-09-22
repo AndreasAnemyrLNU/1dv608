@@ -137,28 +137,28 @@ class doAuth
                     }
 
                 //usecase 3 3.1 - 3.2
-//                if
-//                (
-//                    $this->loginView->didUserMarkKeepMeLoggedIn()
-//                )
-//                {
-//
-//                    if
-//                    (
-//                        $this->loginView->hasCookieName()
-//                        && $this->loginView->hasCookiePassword()
-//                    )
-//                    {
-//                        $this->loginModel->setResponseMessage("");
-//                    }
-//                    else
-//                    {
-//                        $this->loginModel->setResponseMessage("Welcome and you will be remembered");
-//                        $this->loginModel->startTrackThisIsACookieUser();
-//                    }
-//
-//                    $this->loginView->createSessionCookies();
-//                }
+                if
+                (
+                    $this->loginView->didUserMarkKeepMeLoggedIn()
+                )
+                {
+
+                    if
+                    (
+                        $this->loginView->hasCookieName()
+                        && $this->loginView->hasCookiePassword()
+                    )
+                    {
+                        $this->loginModel->setResponseMessage("");
+                    }
+                    else
+                    {
+                        $this->loginModel->setResponseMessage("Welcome and you will be remembered");
+                        $this->loginModel->startTrackThisIsACookieUser();
+                    }
+
+                    $this->loginView->createSessionCookies();
+                }
 
                 //If Login is Ok - User is saved in loginModel.
                 //User also saved in $_SESSION!! (in setters of loginModel)
