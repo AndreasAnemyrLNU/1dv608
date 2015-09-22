@@ -25,6 +25,7 @@ require_once('exception/FailedLoginWithoutAnyEnteredFieldsException.php');
 require_once('exception/FailedLoginWithOnlyUserNameException.php');
 require_once('exception/FailedLoginWithOnlyPasswordException.php');
 require_once('exception/FailedLoginWithWrongPassWordButExistingUserNameException.php');
+require_once('exception/FailedLoginWrongNameInCookiesException.php');
 
 //CREATE OBJECTS OF THE MODELS
 $timeStamp = new \model\DateTimeModel();

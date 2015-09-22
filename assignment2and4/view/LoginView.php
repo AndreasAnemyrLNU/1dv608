@@ -253,4 +253,9 @@ class LoginView {
 			return TRUE;
 		}
 	}
+
+	public function clientHasCredentialsSaved()
+	{
+		return $this->hasCookieName() && $this->hasCookiePassword() ? TRUE : FALSE;
+	}
 }

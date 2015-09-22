@@ -15,15 +15,22 @@ class userModel
     private $passWord;
     private $loginModel;
 
+    private $clientHasCredentialsSaved;
+
     /**
      * userModel constructor.
      * @param $userName
      * @param $passWord
      */
-    public function __construct($userName, $passWord, LoginModel $loginModel)
+    public function __construct(
+                                    $userName,
+                                    $passWord,
+                                    LoginModel $loginModel,
+                                    $clientHasCredentialsSaved)
     {
 
         $this->loginModel = $loginModel;
+        $this->clientHasCredentialsSaved = $clientHasCredentialsSaved;
 
         //Test for usecase 1.2
         $this->loginAttemptHasNotEmptyField($userName, $passWord);
@@ -78,19 +85,30 @@ class userModel
 
         //Impl. query against a dal something.... Hardcoded for test!
 
-        if (strcmp($userName, 'Admin') !== 0)
+        if($this->clientHasCredentialsSaved)
         {
-            throw new \FaildeloginWithWrongPassWordButExistingUserName("Wrong name or password");
-        }
+            if (strcmp($userName, 'Admin') !== 0)
+            {
+                throw new \FaildeloginWithWrongPassWordButExistingUserName("Wrong information in cookies");
+            }
 
-        if (strcmp($passWord, 'Password') !== 0)
+            if (strcmp($passWord, 'Password') !== 0)
+            {
+                throw new \FaildeloginWithWrongPassWordButExistingUserName("Wrong information in cookies");
+            }
+        }
+        else
         {
-            throw new \FaildeloginWithWrongPassWordButExistingUserName("Wrong name or password");
+            if (strcmp($userName, 'Admin') !== 0)
+            {
+                throw new \FaildeloginWithWrongPassWordButExistingUserName("Wrong name or password");
+            }
+
+            if (strcmp($passWord, 'Password') !== 0)
+            {
+                throw new \FaildeloginWithWrongPassWordButExistingUserName("Wrong name or password");
+            }
         }
-
-
-
         return true;
-
     }
 }
