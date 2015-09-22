@@ -4,8 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/assignment2and4/view/LoginView.php" line="260" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ffa548-7586-480d-8dc7-d93400b7f510" name="Default" comment=".">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" afterPath="$PROJECT_DIR$/assignment2and4/controller/doAuth.php" />
+    <list default="true" id="f6ffa548-7586-480d-8dc7-d93400b7f510" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="1dv608.iws" />
@@ -492,12 +491,6 @@
       <option name="number" value="Default" />
       <updated>1441224735876</updated>
     </task>
-    <task id="LOCAL-00005" summary="usecase  1.1 - 1.4 tests OK!">
-      <created>1442665824876</created>
-      <option name="number" value="00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1442665824876</updated>
-    </task>
     <task id="LOCAL-00006" summary="usecase 1.5 test ok 29%">
       <created>1442667457501</created>
       <option name="number" value="00006" />
@@ -786,7 +779,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442941602478</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary=".">
+      <created>1442941697528</created>
+      <option name="number" value="00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1442941697528</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TodoView">
