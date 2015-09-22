@@ -75,22 +75,22 @@ class doAuth
             try
             {
                 //usecase 3.4 Failed login by manipulated cookies
-                if
-                (
-                    (
-                        $this->loginView->hasCookieName()
-                        && $this->loginView->hasCookiePassword()
-                    )
-                    &&
-                    (
-                        $_SESSION['user'] !== $this->loginView->getValueOfCookieUserName()
-                        && $_SESSION['password'] !== $this->loginView->getValueOfPostPassword()
-
-                    )
-                )
-                {
-                    throw new \Exception('Wrong information in cookies');
-                }
+//                if
+//                (
+//                    (
+//                        $this->loginView->hasCookieName()
+//                        && $this->loginView->hasCookiePassword()
+//                    )
+//                    &&
+//                    (
+//                        $_SESSION['user'] !== $this->loginView->getValueOfCookieUserName()
+//                        && $_SESSION['password'] !== $this->loginView->getValueOfPostPassword()
+//
+//                    )
+//                )
+//                {
+//                    throw new \Exception('Wrong information in cookies');
+//                }
 
 
                 //Before! __Constructor accept to create a userModel
@@ -129,6 +129,7 @@ class doAuth
                     (
                         !isset($_SESSION[$_COOKIE['PHPSESSID']])
                         && $this->smartQuestionsView->isGet()
+                        && $this->loginModel->isACookieUser()
                     )
                     {
                         $this->loginModel->setResponseMessage('Welcome back with cookie');
@@ -152,6 +153,7 @@ class doAuth
                     else
                     {
                         $this->loginModel->setResponseMessage("Welcome and you will be remembered");
+                        $this->loginModel->startTrackThisIsACookieUser();
                     }
 
                     $this->loginView->createSessionCookies();
