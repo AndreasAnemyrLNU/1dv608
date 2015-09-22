@@ -129,7 +129,6 @@ class doAuth
                     (
                         !isset($_SESSION[$_COOKIE['PHPSESSID']])
                         && $this->smartQuestionsView->isGet()
-                        && $this->loginModel->isACookieUser()
                     )
                     {
                         $this->loginModel->setResponseMessage('Welcome back with cookie');
