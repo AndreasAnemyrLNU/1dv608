@@ -140,7 +140,7 @@ class LoginView {
 	 */
 	public function getValueOfCookiePassWord()
 	{
-		return base64_decode($_COOKIE[self::$cookiePassword]);
+		return $_COOKIE[self::$cookiePassword];
 	}
 
 	/**
@@ -231,8 +231,8 @@ class LoginView {
 	public function createSessionCookies()
 	{
 		//TODO encoding in model insteda or at least controller maybe?
-		setcookie(self::$cookieName, 		$this->getValueOfPostUserName(), 					time()+3600);
-		setcookie(self::$cookiePassword, 	base64_encode($this->getValueOfPostPassword()), 	time()+3600);
+		setcookie(self::$cookieName, 		$this->getValueOfPostUserName(), 	time()+3600);
+		setcookie(self::$cookiePassword, 	$this->getValueOfPostPassword(), 	time()+3600);
 	}
 
 	public function deleteSessionCookies()

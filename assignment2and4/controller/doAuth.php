@@ -44,6 +44,9 @@ class doAuth
     public function tryAuth()
     {
 
+        echo $this->loginView->getValueOfCookiePassWord();
+        var_dump($_SESSION);
+        echo $_COOKIE['LoginView::CookiePassword'];
 
         //usecase 3.3 Login by cookies
         if
@@ -53,8 +56,12 @@ class doAuth
             && $this->loginView->hasCookiePassword()
         )
         {
+
+
+
             $name       = $this->loginView->getValueOfCookieUserName();
             $password   = $this->loginView->getValueOfCookiePassWord();
+            //$password   = $this->loginView->getValueOfCookiePassWord();
 
             $this->loginView->setValueOfPostUserName($name);
             $this->loginView->setValueOfPostPassword($password);
@@ -106,6 +113,7 @@ class doAuth
                     )
                     {
                         $this->loginModel->setResponseMessage("");
+
                     }
                     elseif
                     (
@@ -147,7 +155,6 @@ class doAuth
                 $this->loginModel->setUser      ($this->loginView->getValueOfPostUserName());
                 $this->loginModel->setPassword  ($this->loginView->getValueOfPostPassword());
 
-                //$_SESSION[$_COOKIE['PHPSESSID']] = $_COOKIE['PHPSESSID'];
             }
             catch (\Exception $e)
             {
