@@ -44,9 +44,9 @@ class doAuth
     public function tryAuth()
     {
 
-        echo $this->loginView->getValueOfCookiePassWord();
-        var_dump($_SESSION);
-        echo $_COOKIE['LoginView::CookiePassword'];
+        //echo $this->loginView->getValueOfCookiePassWord();
+        //var_dump($_SESSION);
+        //echo $_COOKIE['LoginView::CookiePassword'];
 
         //usecase 3.3 Login by cookies
         if
