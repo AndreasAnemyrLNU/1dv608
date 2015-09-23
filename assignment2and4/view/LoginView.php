@@ -242,6 +242,7 @@ class LoginView {
 	{
 		setcookie(self::$cookieName, 		$this->getValueOfCookieUserName(), 		time()-3600);
 		setcookie(self::$cookiePassword, 	$this->getValueOfCookiePassWord(),	 	time()-3600);
+		setcookie('rnd',					""								 ,		time()-3600);
 	}
 
 	public function deactivateLogoutButton()

@@ -107,8 +107,8 @@ class doAuth
                 }
 
 
-                echo $_COOKIE['rnd'];
-                echo $_SESSION['previousUnniqueNumberBasedOnTimeOfRequestToServer'];
+                //echo $_COOKIE['rnd'];
+                //echo $_SESSION['previousUnniqueNumberBasedOnTimeOfRequestToServer'];
 
 
                 setcookie('rnd', $this->rndNumberGenerator->getuniqueNumberBasedOnTimeOfRequestToServer());
