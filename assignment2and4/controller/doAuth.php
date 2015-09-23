@@ -62,29 +62,48 @@ class doAuth
 
             )
             {
-                $this->userModel = $this->createUserModel();
 
-                //Usecase 1.7
-                if ($this->loginModel->getIsAuthenticated() === FALSE) {
-                    $this->loginModel->setResponseMessage('Welcome');
+                //START FLOW SAVED CREDENTIALS VIEW
+                if($this->loginView->clientHasCredentialsSaved())
+                {
+                    $this->userModel = $this->createUserModelFromClientCredentials();
+
+                    //END FLOW SESSION USER
                 }
-                //Usecase 1.8
-                if ($this->loginModel->getIsAuthenticated() === TRUE) {
-                    $this->loginModel->setResponseMessage('');
+                //END FLOW SAVED CREDENTIALS VIEW
+                //START FLOW SESSION USER
+                else
+                {
+                    $this->userModel = $this->createUserModel();
+
+                    //Usecase 1.7
+                    if ($this->loginModel->getIsAuthenticated() === FALSE) {
+                        $this->loginModel->setResponseMessage('Welcome');
+                    }
+                    //Usecase 1.8
+                    if ($this->loginModel->getIsAuthenticated() === TRUE) {
+                        $this->loginModel->setResponseMessage('');
+                    }
+
+                    //If user logged in by POST or SESSION it's tracked now by/in session!
+                    $this->loginModel->startSessionTrackUser();
+                    $this->loginModel->setIsAuthenticated(TRUE);
+                    //END FLOW SESSION USER
                 }
 
-                //If user logged in by POST or SESSION it's tracked now by/in session!
-                $this->loginModel->startSessionTrackUser();
-                $this->loginModel->setIsAuthenticated(TRUE);
+                //Usecase 3.1 Keep Me...
+                $this->loginView->didUserMarkKeepMeLoggedIn()
+                    ? $this->loginView->createSessionCookies(new RndNumberGenerator()) : NULL;
 
                 //Usecase 2.1 Logout
-                if ($this->loginView->didClickLogout()) {
+                if ($this->loginView->didClickLogout())
+                {
                     $this->loginModel->setResponseMessage('Bye bye!');
                     //Prevents View from authenticated stuff...
                     $this->loginModel->setIsAuthenticated(FALSE);
                     //Delete all session vars
                     //session_destroy();
-                };
+                }
             }
             else
             {
@@ -247,6 +266,8 @@ class doAuth
         //Before returning new object!
         //Validation by the __constructor.
         // Exception is thrown if data or user is === not valid!
+
+
     if($this->loginModel->getIsAuthenticated())
     {
         $username = userModel::getSessionUserName();
@@ -265,5 +286,23 @@ class doAuth
                             $this->loginModel,
                             $this->loginView->clientHasCredentialsSaved()
                         );
+    }
+
+    private function createUserModelFromClientCredentials()
+    {
+        //Before returning new object!
+        //Validation by the __constructor.
+        // Exception is thrown if data or user is === not valid!
+
+            $username = $this->loginView->getValueOfCookieUserName();
+            $password = $this->loginView->getValueOfCookiePassWord();
+
+        return new userModel
+        (
+            $username,
+            $password,
+            $this->loginModel,
+            $this->loginView->clientHasCredentialsSaved()
+        );
     }
 }
