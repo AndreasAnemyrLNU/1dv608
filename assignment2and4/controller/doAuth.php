@@ -98,13 +98,17 @@ class doAuth
                 $this->loginModel->setIsAuthenticated(TRUE);
 
                 //Check Clients Request!
-                if
-                (
-                    $_COOKIE['rnd'] !== $_SESSION['previousUnniqueNumberBasedOnTimeOfRequestToServer']
-                )
+                if(isset($_COOKIE['rnd']))
                 {
-                    $this->loginModel->setIsAuthenticated(FALSE);
+                    if($_COOKIE['rnd'] === $_SESSION['previousUniqueNumberBasedOnTimeOfRequestToServer']);
                 }
+                {
+                    $this->loginModel->setIsAuthenticated(TRUE);
+                }
+
+
+                echo $_COOKIE['rnd'];
+                echo $_SESSION['previousUnniqueNumberBasedOnTimeOfRequestToServer'];
 
 
                 setcookie('rnd', $this->rndNumberGenerator->getuniqueNumberBasedOnTimeOfRequestToServer());
