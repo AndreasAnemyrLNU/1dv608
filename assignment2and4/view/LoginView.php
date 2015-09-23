@@ -230,6 +230,14 @@ class LoginView {
 		}
 	}
 
+	public function didNotClickLogout()
+	{
+		if(isset($_POST[self::$logout]) === FALSE)
+		{
+			return TRUE;
+		}
+	}
+
 	public function createSessionCookies($rndNumber)
 	{
 		//TODO encoding in model insteda or at least controller maybe?

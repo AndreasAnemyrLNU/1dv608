@@ -24,6 +24,7 @@ class doAuth
     private $smartQuestionsModel;
     private $dalauthenticationModel;
     private $rndNumberGenerator;
+    private $userModel;
 
 
     public function __construct
@@ -45,155 +46,224 @@ class doAuth
     //usecase 1 (1.1 - 1.7 OK!
     public function tryAuth()
     {
-
-        //echo $this->loginView->getValueOfCookiePassWord();
-        //var_dump($_SESSION);
-        //echo $_COOKIE['LoginView::CookiePassword'];
-
-        //usecase 3.3 Login by cookies
-        if
-        (
-            $this->smartQuestionsView->isGet()
-            && $this->loginView->hasCookieName()
-            && $this->loginView->hasCookiePassword()
-        )
+        //Usecase 1.1
+        //Solution -> $loginModel->$isAuthenticated = TRUE in __Constructor
+        try
         {
+                //Usecase 1.2 - 1.6 (Method createUserModel checks if Sessions exists,
+                // usecase 1.8, 1.8.1, 1.9)
+            if
+            (
+                //Fix for problem with reloading post when logout...
+                $this->smartQuestionsView->isPost()
+                && $this->loginView->didNotClickLogout()
+                //A session i valid for create a UserModel
+                || $this->loginModel->getIsAuthenticated()
 
-            $name       = $this->loginView->getValueOfCookieUserName();
-            $password   = $this->loginView->getValueOfCookiePassWord();
-            //$password   = $this->loginView->getValueOfCookiePassWord();
-
-            $this->loginView->setValueOfPostUserName($name);
-            $this->loginView->setValueOfPostPassword($password);
-        }
-
-        //Get value froom cookies if PHPSESSID ok??? TEST?
-        if
-        (
-            $this->smartQuestionsView->isPost()
-            && $this->loginView->didClickLogin()
-            ||
-            //Destroyed PHPSESSID but existing cookies in browser.
-            $this->smartQuestionsView->isGet()
-            && $this->loginView->hasCookieName()
-            && $this->loginView->hasCookiePassword()
-        )
-        {
-            try
+            )
             {
-                //Before! __Constructor accept to create a userModel
-                //validating is done in and by the __constructor.
-                // Exception is thrown if data or user is === not valid!
-                $user = new userModel
-                                        (
-                                            $this->loginView->getValueOfPostUserName(),
-                                            $this->loginView->getValueOfPostPassword(),
-                                            $this->loginModel,
-                                            $this->loginView->clientHasCredentialsSaved()
-                                        );
+                $this->userModel = $this->createUserModel();
 
-                //No Exception thrown. Login OK!
+                //Usecase 1.7
+                if ($this->loginModel->getIsAuthenticated() === FALSE) {
+                    $this->loginModel->setResponseMessage('Welcome');
+                }
+                //Usecase 1.8
+                if ($this->loginModel->getIsAuthenticated() === TRUE) {
+                    $this->loginModel->setResponseMessage('');
+                }
+
+                //If user logged in by POST or SESSION it's tracked now by/in session!
+                $this->loginModel->startSessionTrackUser();
                 $this->loginModel->setIsAuthenticated(TRUE);
 
-                //Check Clients Request!
-                if($this->loginModel->isNotTracked())
-                {
-                    if($_COOKIE['LoginView::rnd'] == $_SESSION['previousUniqueNumberBasedOnTimeOfRequestToServer'])
-                    {
-                        $this->loginModel->setIsAuthenticated(TRUE);
-                    }
-                    else
-                    {
-                        //echo gettype($_SESSION['previousUnniqueNumberBasedOnTimeOfRequestToServer']);
-                        //echo gettype($_COOKIE['LoginView::rnd']);
-                        //echo $this->loginModel->isTracked();
-                        //echo "Nä!";
-
-                        $this->loginModel->setIsAuthenticated(FALSE);
-                    }
-                }
-                setcookie('LoginView::rnd', $this->rndNumberGenerator->getuniqueNumberBasedOnTimeOfRequestToServer());
-
-                    if
-                    (
-                        $this->smartQuestionsView->isPost()
-                        && $this->loginModel->isNotTracked()
-                    )
-                    {
-                        $this->loginModel->setResponseMessage("Welcome");
-                        $this->loginModel->startTrackUser();
-                    }
-                    elseif
-                    (
-                        !isset($_COOKIE['PHPSESSID'])
-                        && $this->smartQuestionsView->isGet()
-                        && $this->loginModel->isNotACookieUser()
-                    )
-                    {
-                        $this->loginModel->setResponseMessage('Welcome back with cookie');
-                        $this->loginModel->startTrackUser();
-                        $this->loginModel->setIsAuthenticated(TRUE);
-                    }
-                    elseif
-                    (
-                        $this->smartQuestionsView->isPost()
-                        && $this->loginModel->isTracked()
-                    )
-                    {
-                        $this->loginModel->setResponseMessage("");
-
-                    }
-
-                //usecase 3 3.1 - 3.2
-                if
-                (
-                    $this->loginView->didUserMarkKeepMeLoggedIn()
-                )
-                {
-
-                    if
-                    (
-                        $this->loginView->hasCookieName()
-                        && $this->loginView->hasCookiePassword()
-                    )
-                    {
-                        $this->loginModel->setResponseMessage("");
-                    }
-                    else
-                    {
-                        $this->loginModel->setResponseMessage("Welcome and you will be remembered");
-                        $this->loginModel->startTrackThisIsACookieUser();
-                    }
-                    $this->loginView->createSessionCookies($this->rndNumberGenerator->getuniqueNumberBasedOnTimeOfRequestToServer());
-                }
-
-                //If Login is Ok - User is saved in loginModel.
-                //User also saved in $_SESSION!! (in setters of loginModel)
-                $this->loginModel->setUser      ($this->loginView->getValueOfPostUserName());
-                $this->loginModel->setPassword  ($this->loginView->getValueOfPostPassword());
-
+                //Usecase 2.1 Logout
+                if ($this->loginView->didClickLogout()) {
+                    $this->loginModel->setResponseMessage('Bye bye!');
+                    //Prevents View from authenticated stuff...
+                    $this->loginModel->setIsAuthenticated(FALSE);
+                    //Delete all session vars
+                    //session_destroy();
+                };
             }
-            catch (\Exception $e)
+            else
             {
-                $this->loginModel->setResponseMessage($e->getMessage());
+                //Client tried a GET...
+                $this->loginModel->setIsAuthenticated(FALSE);
             }
         }
-        //usecase 2.1 - 2.4 OK!
-        elseif
-                (
-                    $this->smartQuestionsView->isPost()
-                    && $this->loginView->didClickLogout()
-                    && $this->loginModel->getIsAuthenticated()
-                )
+        catch (\Exception $e)
         {
-            $this->loginModel->setIsAuthenticated(FALSE);
-            $this->loginView->deactivateLogoutButton();
-            $this->loginModel->setResponseMessage("Bye bye!");
-            $this->loginView->deleteSessionCookies();
+            $this->loginModel->setResponseMessage($e->getMessage());
         }
-        else
-        {
-            //Empty
-        }
+
+
+
+
+//        //usecase 3.3 Login by cookies
+//        if
+//        (
+//            $this->smartQuestionsView->isGet()
+//            && $this->loginView->hasCookieName()
+//            && $this->loginView->hasCookiePassword()
+//        )
+//        {
+//
+//            $name       = $this->loginView->getValueOfCookieUserName();
+//            $password   = $this->loginView->getValueOfCookiePassWord();
+//            //$password   = $this->loginView->getValueOfCookiePassWord();
+//
+//            $this->loginView->setValueOfPostUserName($name);
+//            $this->loginView->setValueOfPostPassword($password);
+//        }
+//
+//        //Get value froom cookies if PHPSESSID ok??? TEST?
+//        if
+//        (
+//            $this->smartQuestionsView->isPost()
+//            && $this->loginView->didClickLogin()
+//            ||
+//            //Destroyed PHPSESSID but existing cookies in browser.
+//            $this->smartQuestionsView->isGet()
+//            && $this->loginView->hasCookieName()
+//            && $this->loginView->hasCookiePassword()
+//        )
+//        {
+//            try
+//            {
+//                //Before! __Constructor accept to create a userModel
+//                //validating is done in and by the __constructor.
+//                // Exception is thrown if data or user is === not valid!
+//                $user = new userModel
+//                                        (
+//                                            $this->loginView->getValueOfPostUserName(),
+//                                            $this->loginView->getValueOfPostPassword(),
+//                                            $this->loginModel,
+//                                            $this->loginView->clientHasCredentialsSaved()
+//                                        );
+//
+//                //No Exception thrown. Login OK!
+//                $this->loginModel->setIsAuthenticated(TRUE);
+//
+//                //Check Clients Request!
+//                if($this->loginModel->isNotTracked())
+//                {
+//                    if($_COOKIE['LoginView::rnd'] == $_SESSION['previousUniqueNumberBasedOnTimeOfRequestToServer'])
+//                    {
+//                        $this->loginModel->setIsAuthenticated(TRUE);
+//                    }
+//                    else
+//                    {
+//                        $this->loginModel->setIsAuthenticated(FALSE);
+//                    }
+//                }
+//                setcookie('LoginView::rnd', $this->rndNumberGenerator->getuniqueNumberBasedOnTimeOfRequestToServer());
+//
+//                    if
+//                    (
+//                        $this->smartQuestionsView->isPost()
+//                        && $this->loginModel->isNotTracked()
+//                    )
+//                    {
+//                        $this->loginModel->setResponseMessage("Welcome");
+//                        $this->loginModel->startTrackUser();
+//                    }
+//                    elseif
+//                    (
+//                        !isset($_COOKIE['PHPSESSID'])
+//                        && $this->smartQuestionsView->isGet()
+//                        && $this->loginModel->isNotACookieUser()
+//                    )
+//                    {
+//                        $this->loginModel->setResponseMessage('Welcome back with cookie');
+//                        $this->loginModel->startTrackUser();
+//                        $this->loginModel->setIsAuthenticated(TRUE);
+//                    }
+//                    elseif
+//                    (
+//                        $this->smartQuestionsView->isPost()
+//                        && $this->loginModel->isTracked()
+//                    )
+//                    {
+//                        $this->loginModel->setResponseMessage("");
+//
+//                    }
+//
+//                //usecase 3 3.1 - 3.2
+//                if
+//                (
+//                    $this->loginView->didUserMarkKeepMeLoggedIn()
+//                )
+//                {
+//
+//                    if
+//                    (
+//                        $this->loginView->hasCookieName()
+//                        && $this->loginView->hasCookiePassword()
+//                    )
+//                    {
+//                        $this->loginModel->setResponseMessage("");
+//                    }
+//                    else
+//                    {
+//                        $this->loginModel->setResponseMessage("Welcome and you will be remembered");
+//                        $this->loginModel->startTrackThisIsACookieUser();
+//                    }
+//                    $this->loginView->createSessionCookies($this->rndNumberGenerator->getuniqueNumberBasedOnTimeOfRequestToServer());
+//                }
+//
+//                //If Login is Ok - User is saved in loginModel.
+//                //User also saved in $_SESSION!! (in setters of loginModel)
+//                $this->loginModel->setUser      ($this->loginView->getValueOfPostUserName());
+//                $this->loginModel->setPassword  ($this->loginView->getValueOfPostPassword());
+//
+//            }
+//            catch (\Exception $e)
+//            {
+//                $this->loginModel->setResponseMessage($e->getMessage());
+//            }
+//        }
+//        //usecase 2.1 - 2.4 OK!
+//        elseif
+//                (
+//                    $this->smartQuestionsView->isPost()
+//                    && $this->loginView->didClickLogout()
+//                    && $this->loginModel->getIsAuthenticated()
+//                )
+//        {
+//            $this->loginModel->setIsAuthenticated(FALSE);
+//            $this->loginView->deactivateLogoutButton();
+//            $this->loginModel->setResponseMessage("Bye bye!");
+//            $this->loginView->deleteSessionCookies();
+//        }
+//        else
+//        {
+//            //Empty
+//        }
+    }
+
+    private function createUserModel()
+    {
+        //Before returning new object!
+        //Validation by the __constructor.
+        // Exception is thrown if data or user is === not valid!
+    if($this->loginModel->getIsAuthenticated())
+    {
+        $username = userModel::getSessionUserName();
+        $password = userModel::getSessionPassword();
+    }
+    else
+    {
+        $username = $this->loginView->getValueOfPostUserName();
+        $password =  $this->loginView->getValueOfPostPassword();
+    }
+
+    return new userModel
+                        (
+                            $username,
+                            $password,
+                            $this->loginModel,
+                            $this->loginView->clientHasCredentialsSaved()
+                        );
     }
 }

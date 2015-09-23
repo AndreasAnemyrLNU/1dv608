@@ -30,7 +30,7 @@ class DateTimeModel
     function __construct()
     {
         //TODO 0001 fix better solution for Timezone. Another OO oriented solution?
-        $timestamp = time();
+        $timestamp = time() + 7200 ;
 
         $this->setYear(date("Y", $timestamp));      //2015
         $this->setMonth(date("F", $timestamp));     //01,31

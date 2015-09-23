@@ -23,8 +23,6 @@ class LoginModel
 
     public function __construct()
     {
-        $this->responseMessage = "";
-
         if(isset($_SESSION['isAuthenticated']))
         {
             $this->setIsAuthenticated($_SESSION['isAuthenticated']);
@@ -33,7 +31,6 @@ class LoginModel
         {
             $this->setIsAuthenticated(FALSE);
         }
-
     }
 
 
@@ -69,12 +66,17 @@ class LoginModel
         $this->responseMessage = $responseMessage;
     }
 
+    public function checkIfUsersHasBeenHere()
+    {
+        return false;
+    }
+
     /**
      * @return mixed
      */
     public function getIsAuthenticated()
     {
-        return $this->isAuthenticated;
+        return $this->isAuthenticated && $_SESSION['isAuthenticated'];
     }
 
     /**
@@ -122,44 +124,49 @@ class LoginModel
         $_SESSION['password'] = $password;
     }
 
-    public function startTrackUser()
+    public function startSessionTrackUser()
     {
-        $_SESSION['isTracked'] = TRUE;
+        $_SESSION['isSessionTracked'] = TRUE;
     }
 
-    public function stopTrackUser()
+    public function stopSessionTrackUser()
     {
-        $_SESSION['isTracked'] = FALSE;
+        $_SESSION['isSessionTracked'] = FALSE;
     }
 
-    public function isTracked()
+    public function isSessionTracked()
     {
-        if(isset($_SESSION['isTracked']))
+        if(isset($_SESSION['isSessionTracked']))
         {
-            return $_SESSION['isTracked'] === TRUE ? TRUE : FALSE;
+            return $_SESSION['isSessionTracked'] === TRUE ? TRUE : FALSE;
         }
         return FALSE;
     }
 
-    public function isNotTracked()
+    public function isNotSessionTracked()
     {
-        if(isset($_SESSION['isTracked']))
+        if(isset($_SESSION['isSessionTracked']))
         {
-            return $_SESSION['isTracked'] === FALSE ? TRUE : FALSE;
+            return $_SESSION['isSessionTracked'] === FALSE ? TRUE : FALSE;
         }
         return TRUE;
     }
 
-    public function startTrackThisIsACookieUser()
+    public function startTrackAsCookieUser()
     {
         $_SESSION['isACookieUser'] = TRUE;
+    }
+
+    public function stopTrackAsCookieUser()
+    {
+        $_SESSION['isACookieUser'] = FALSE;
     }
 
     public function isACookieUser()
     {
         if(isset($_SESSION['isACookieUser']))
         {
-            return $_SESSION['isTracked'] === TRUE ? TRUE : FALSE;
+            return $_SESSION['isACookieUser'] === TRUE ? TRUE : FALSE;
         }
         return FALSE;
     }
@@ -171,5 +178,15 @@ class LoginModel
             return $_SESSION['isACookieUser'] === FALSE ? TRUE : FALSE;
         }
         return TRUE;
+    }
+
+    public function getClientHaveBeenHereBefore()
+    {
+        return $_SESSION['clientHaveBeenHere'];
+    }
+
+    public function setSessionClientHaveBeenHereBefore($bool)
+    {
+        $_SESSION['clientHaveBeenHere'] = $bool;
     }
 }

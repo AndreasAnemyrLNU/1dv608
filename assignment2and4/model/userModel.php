@@ -109,6 +109,20 @@ class userModel
                 throw new \FaildeloginWithWrongPassWordButExistingUserName("Wrong name or password");
             }
         }
+
+        $_SESSION['userName'] = $userName;
+        $_SESSION['password'] = $passWord;
+
         return true;
+    }
+
+    public static function getSessionUserName()
+    {
+        return $_SESSION['userName'];
+    }
+
+    public static function getSessionPassword()
+    {
+        return $_SESSION['password'];
     }
 }
