@@ -9,6 +9,7 @@
 namespace controller;
 use model\DALAuthentication;
 use \model\loginModel;
+use model\RndNumberGenerator;
 use model\SmartQuestionsModel;
 use model\userModel;
 use \view\loginView;
@@ -19,10 +20,11 @@ class doAuth
 {
     private $loginView;
     private $loginModel;
-    private $loginModelCopy;
     private $smartQuestionsView;
     private $smartQuestionsModel;
     private $dalauthenticationModel;
+    private $rndNumberGenerator;
+
 
     public function __construct
                                 (
@@ -35,10 +37,10 @@ class doAuth
     {
         $this->loginView = $loginView;
         $this->loginModel = $loginModel;
-        $this->loginModelCopy = clone $this->loginModel;
         $this->smartQuestionsView = $smartQuestionsView;
         $this->smartQuestionsModel = $smartQuestionsModel;
         $this->dalauthenticationModel = $dalauthenticationModel;
+        $this->rndNumberGenerator = new RndNumberGenerator();
     }
     //usecase 1 (1.1 - 1.7 OK!
     public function tryAuth()
@@ -94,8 +96,18 @@ class doAuth
 
                 //No Exception thrown. Login OK!
                 $this->loginModel->setIsAuthenticated(TRUE);
-                //Todo ok to store in $_SESSION here?
-                $_SESSION['isAuthenticated'] = TRUE;
+
+                //Check Clients Request!
+                if
+                (
+                    $_COOKIE['rnd'] !== $_SESSION['previousUnniqueNumberBasedOnTimeOfRequestToServer']
+                )
+                {
+                    $this->loginModel->setIsAuthenticated(FALSE);
+                }
+
+
+                setcookie('rnd', $this->rndNumberGenerator->getuniqueNumberBasedOnTimeOfRequestToServer());
 
                     if
                     (
@@ -146,8 +158,7 @@ class doAuth
                         $this->loginModel->setResponseMessage("Welcome and you will be remembered");
                         $this->loginModel->startTrackThisIsACookieUser();
                     }
-
-                    $this->loginView->createSessionCookies();
+                    $this->loginView->createSessionCookies($this->rndNumberGenerator->getuniqueNumberBasedOnTimeOfRequestToServer());
                 }
 
                 //If Login is Ok - User is saved in loginModel.

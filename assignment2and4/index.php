@@ -1,11 +1,14 @@
 <?php
 session_start();
 //Prevens attack by passing a SID via url
-ini_set('session.use_only_cookies', 0);
+//ONLY TEST!
+ini_set('session.use_only_cookies', 1);
+ini_set('session.hash_function', 1);
+
 //MAKE SURE ERRORS ARE SHOWN... MIGHT WANT TO TURN THIS OFF ON A PUBLIC SERVER
 assert_options(ASSERT_ACTIVE, 0);
 error_reporting(E_ALL);
-ini_set('display_errors', 'Off');
+ini_set('display_errors', 'On');
 
 //required controllers
 require_once('controller/doAuth.php');
@@ -20,6 +23,7 @@ require_once('model/LoginModel.php');
 require_once('model/SmartQuestionsModel.php');
 require_once('model/DALAuthentication.php');
 require_once('model/userModel.php');
+require_once('model/RndNumberGenerator.php');
 //required exceptions
 require_once('exception/ExceptionDALAuthentication.php');
 require_once('exception/FailedLoginWithoutAnyEnteredFieldsException.php');
@@ -67,3 +71,5 @@ $layoutView->render($loginModel->getIsAuthenticated(), $loginView, $dateTimeView
 //    " in the Class: ".  __CLASS__ . " and the line " .  __LINE__
 //);
 //TODO < END
+
+

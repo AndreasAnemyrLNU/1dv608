@@ -3,6 +3,7 @@
 namespace view;
 
 use model\LoginModel;
+use model\RndNumberGenerator;
 
 class LoginView {
 	private static $login = 'LoginView::Login';
@@ -228,11 +229,13 @@ class LoginView {
 		}
 	}
 
-	public function createSessionCookies()
+	public function createSessionCookies($rndNumber)
 	{
 		//TODO encoding in model insteda or at least controller maybe?
 		setcookie(self::$cookieName, 		$this->getValueOfPostUserName(), 	time()+3600);
 		setcookie(self::$cookiePassword, 	$this->getValueOfPostPassword(), 	time()+3600);
+		setcookie('rnd',					$rndNumber,							time()+3600);
+
 	}
 
 	public function deleteSessionCookies()
