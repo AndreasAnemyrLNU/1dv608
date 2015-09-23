@@ -1,6 +1,7 @@
 <?php
 session_start();
-ini_set('session.use_only_cookies', 1);
+//Prevens attack by passing a SID via url
+ini_set('session.use_only_cookies', 0);
 //MAKE SURE ERRORS ARE SHOWN... MIGHT WANT TO TURN THIS OFF ON A PUBLIC SERVER
 assert_options(ASSERT_ACTIVE, 0);
 error_reporting(E_ALL);
