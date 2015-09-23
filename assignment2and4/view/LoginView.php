@@ -14,6 +14,7 @@ class LoginView {
 	private static $cookiePassword = 'LoginView::CookiePassword';
 	private static $keep = 'LoginView::KeepMeLoggedIn';
 	private static $messageId = 'LoginView::Message';
+	private static $rnd = 'LoginView::rnd';
 
 	private $loginModel;
 
@@ -234,7 +235,7 @@ class LoginView {
 		//TODO encoding in model insteda or at least controller maybe?
 		setcookie(self::$cookieName, 		$this->getValueOfPostUserName(), 	time()+3600);
 		setcookie(self::$cookiePassword, 	$this->getValueOfPostPassword(), 	time()+3600);
-		setcookie('rnd',					$rndNumber,							time()+3600);
+		setcookie(self::$rnd,				$rndNumber,							time()+3600);
 
 	}
 
@@ -242,7 +243,7 @@ class LoginView {
 	{
 		setcookie(self::$cookieName, 		$this->getValueOfCookieUserName(), 		time()-3600);
 		setcookie(self::$cookiePassword, 	$this->getValueOfCookiePassWord(),	 	time()-3600);
-		setcookie('rnd',					""								 ,		time()-3600);
+		setcookie(self::$rnd,				""								 ,	time()-3600);
 	}
 
 	public function deactivateLogoutButton()

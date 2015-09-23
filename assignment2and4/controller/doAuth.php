@@ -59,8 +59,6 @@ class doAuth
         )
         {
 
-
-
             $name       = $this->loginView->getValueOfCookieUserName();
             $password   = $this->loginView->getValueOfCookiePassWord();
             //$password   = $this->loginView->getValueOfCookiePassWord();
@@ -98,20 +96,23 @@ class doAuth
                 $this->loginModel->setIsAuthenticated(TRUE);
 
                 //Check Clients Request!
-                if(isset($_COOKIE['rnd']))
+                if($this->loginModel->isNotTracked())
                 {
-                    if($_COOKIE['rnd'] === $_SESSION['previousUniqueNumberBasedOnTimeOfRequestToServer']);
+                    if($_COOKIE['LoginView::rnd'] == $_SESSION['previousUniqueNumberBasedOnTimeOfRequestToServer'])
+                    {
+                        $this->loginModel->setIsAuthenticated(TRUE);
+                    }
+                    else
+                    {
+                        //echo gettype($_SESSION['previousUnniqueNumberBasedOnTimeOfRequestToServer']);
+                        //echo gettype($_COOKIE['LoginView::rnd']);
+                        //echo $this->loginModel->isTracked();
+                        //echo "Nä!";
+
+                        $this->loginModel->setIsAuthenticated(FALSE);
+                    }
                 }
-                {
-                    $this->loginModel->setIsAuthenticated(TRUE);
-                }
-
-
-                //echo $_COOKIE['rnd'];
-                //echo $_SESSION['previousUnniqueNumberBasedOnTimeOfRequestToServer'];
-
-
-                setcookie('rnd', $this->rndNumberGenerator->getuniqueNumberBasedOnTimeOfRequestToServer());
+                setcookie('LoginView::rnd', $this->rndNumberGenerator->getuniqueNumberBasedOnTimeOfRequestToServer());
 
                     if
                     (
@@ -124,15 +125,6 @@ class doAuth
                     }
                     elseif
                     (
-                        $this->smartQuestionsView->isPost()
-                        && $this->loginModel->isTracked()
-                    )
-                    {
-                        $this->loginModel->setResponseMessage("");
-
-                    }
-                    elseif
-                    (
                         !isset($_COOKIE['PHPSESSID'])
                         && $this->smartQuestionsView->isGet()
                         && $this->loginModel->isNotACookieUser()
@@ -140,6 +132,16 @@ class doAuth
                     {
                         $this->loginModel->setResponseMessage('Welcome back with cookie');
                         $this->loginModel->startTrackUser();
+                        $this->loginModel->setIsAuthenticated(TRUE);
+                    }
+                    elseif
+                    (
+                        $this->smartQuestionsView->isPost()
+                        && $this->loginModel->isTracked()
+                    )
+                    {
+                        $this->loginModel->setResponseMessage("");
+
                     }
 
                 //usecase 3 3.1 - 3.2
