@@ -54,7 +54,7 @@ class Dal
     {
         try {
             $serializedPersonList = serialize($this->personList);
-            file_put_contents("data/data.txt", $serializedPersonList);
+            file_put_contents("data.txt", $serializedPersonList);
         }catch (\Exception $e)
         {
             throw new \Exception("Saving to file failed!");
@@ -66,7 +66,7 @@ class Dal
     {
         try
         {
-            $this->personList = unserialize(file_get_contents("data/data.txt"));
+            $this->personList = unserialize(file_get_contents("data.txt"));
         }catch (\Exception $e)
         {
             throw new \Exception("Saving to file failed!");
