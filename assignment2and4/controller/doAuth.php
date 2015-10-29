@@ -66,16 +66,7 @@ class doAuth
                 //START FLOW SAVED CREDENTIALS VIEW
                 if($this->loginView->clientHasCredentialsSaved())
                 {
-                    $this->userModel = $this->createUserModelFromClientCredentials();
-
-                    //Fix for reloading submitted form twice or more...
-                    if
-                    (
-                        $this->loginModel->isACookieUser() === FALSE
-                    )
-                    {
-                        $this->loginModel->setResponseMessage('');
-                    }
+                    //TODO
                 }
                 //END FLOW SAVED CREDENTIALS VIEW
                 //START FLOW SESSION USER
@@ -98,11 +89,6 @@ class doAuth
                     //END FLOW SESSION USER
                 }
 
-                //Usecase 3.1 Keep Me...
-                $this->loginView->didUserMarkKeepMeLoggedIn()
-                    ? $this->loginView->createSessionCookies(new RndNumberGenerator()) : NULL;
-                //$this->loginModel->setResponseMessage('Welcome and you will be remembered');
-                $this->loginModel->startTrackAsCookieUser();
 
                 //Usecase 2.1 Logout
                 if ($this->loginView->didClickLogout())
@@ -305,13 +291,12 @@ class doAuth
 
             $username = $this->loginView->getValueOfCookieUserName();
             $password = $this->loginView->getValueOfCookiePassWord();
-
         return new userModel
-        (
-            $username,
-            $password,
-            $this->loginModel,
-            $this->loginView->clientHasCredentialsSaved()
-        );
+                                (
+                                    $username,
+                                    base64_decode($password),
+                                    $this->loginModel,
+                                    $this->loginView->clientHasCredentialsSaved()
+                                );
     }
 }
